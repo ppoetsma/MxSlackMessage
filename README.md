@@ -35,9 +35,9 @@ You start by creating the basis of a message using microflow **Message_Initializ
 
 Next you add one or more lines to your message using microflow **Message_AddLine**. Also here [Markdown](https://api.slack.com/reference/surfaces/formatting) is supported.
 
-An example of the text in such a line is below. The resulting message starts with `@here` which notifies all active users. Next it shows a large blue dot (emoji) and a message where the word **UP** is in **bold**.
+An example of the text in such a line is below. The resulting message starts with `@here` which notifies all active users. Next it shows a large blue dot (emoji) and a text where the word **UP** is in **bold**.
 
-```
+```auto
 <!here> :large_blue_circle: all systems are *UP*
 ```
 
