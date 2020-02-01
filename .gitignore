@@ -1,0 +1,9 @@
+# Mendix app
+*.classpath
+*.launch
+*.project
+src/*.bak
+src/*.lock
+src/deployment
+src/GPUCache
+src/release
