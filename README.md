@@ -4,13 +4,13 @@ This module has a single purpose: send messages to Slack channels.
 
 ## Features
 
-Its features:
+Its features are
 
-* uses Slack Webhooks
+* uses Slack incoming Webhooks
 * send messages to multiple channels in multiple workspaces
-* create messages with markdown markup, or just plain text
+* create messages with markdown markup or just plain text
 * specify message to be shown in the notification
-* no Java, just a module
+* no Java, just native Mendix
 
 ## Installation
 
@@ -20,14 +20,34 @@ Download the module from the AppStore and add it to your project.
 
 The module offers these two roles:
 
-* **Administrator** - manage Webhooks and test creating and sending messages
-* **User** - just access to the Message (and related) entity to be able to create a message
+* **Administrator** - manage Webhooks and test creating and sending messages manually
+* **User** - the minimum needed for regular users
 
 ## Create incoming Webhook(s)
 
-First you have to create one or more Webhooks in Slack. You [can create an app that adds a Webhook](https://api.slack.com/messaging/webhooks) or [add the Incoming Webhook app](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks) to your Slack workspace and configure it. You need a Webhook URL to use the module.
+First you have to create one or more incoming Webhooks in Slack. You [can create an app](https://api.slack.com/messaging/webhooks) that adds the Webhook or add the [Incoming Webhook app](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks) to your Slack workspace and configure it. Which method you prefer is up to you. In the end you need a Webhook URL to use the module. Such URL looks like `https://hooks.slack.com/services/somestring/anotherstring/alongerstring`.
 
-Add snippet **SN_Webhook** to a page to manage the Webhooks. Additionally you can use microflow **Webhook_Ensure** in (for example) the AfterStartup flow to add the Webhooks to the database. That *ensures* that the Webhook are there when the app started.
+A Webhook has these properties (all are required):
+
+* **Label** - a descriptive human readable label
+* **Key** - a sort unique key to be used in your microflows to find the right Webhook; only lowercase and uppercase characters, digits and underscores are allowed here
+* **URL** - the incoming Webhook URL
+
+Add snippet **SN_Webhook** to a page to manage your Webhooks. Additionally you can use microflow **Webhook_Ensure** in for example the AfterStartup flow to add the Webhooks to the database on app start.
+
+## Create and send a single line message
+
+Microflow **Message_CreateAndSend** can be used to send a single line message to Slack and can be used as an example how to use all steps separately with multi line messages.
+
+The microflow has these parameters:
+
+* **NotificationText200** - the text to be shown in the OS notification, max 200 characters
+* **NotificationText200Type** - specify if the text markup is plain text or markdown
+* **Text3000** - the text with the "real" message, max 3000 characters; when *empty* then it is skipped and the notification text is used
+* **Text3000TextType** - specify if the text markup is plain text or markdown
+* **WebhookKey** - the key of the Webhook to send the message to
+
+More details about, for example, text markup are in the paragraphs below.
 
 ## Create message
 
@@ -41,10 +61,14 @@ An example of the text in such a line is below. The resulting message starts wit
 <!here> :large_blue_circle: all systems are *UP*
 ```
 
+An easy way to find the name of an emoji is to create a message in Slack manually and add the desired emoji. The popup where you search for your emoji shows the string to use.
+
 ## Send message
 
-When you have created the message, send it using microflow **Message_Send**. It requires the key of the Webhook that you defined and the message object. On failure check the log file for details.
+When you have created the message you send it using microflow **Message_Send**. It requires the key of the Webhook that you created before.
+
+On failure check the log file for details.
 
 ## Test creating and sending messages
 
-Via snippet **SN_TestMessage** you can create messages and send them to Slack to test how it all works. Especially using emoji's and markdown might requires some testing to be sure that your messages are formatted as exepcted.
+Via snippet **SN_TestMessage** you can create messages and send them to Slack to test how it all works. Especially using emoji's and markdown might require some testing to be sure that your messages are formatted as expected.
