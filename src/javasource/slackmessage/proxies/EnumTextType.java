@@ -6,8 +6,8 @@ package slackmessage.proxies;
 
 public enum EnumTextType
 {
-	mrkdwn(new java.lang.String[][] { new java.lang.String[] { "en_US", "Markdown" } }),
-	plain_text(new java.lang.String[][] { new java.lang.String[] { "en_US", "Plain text" } });
+	mrkdwn(new java.lang.String[][] { new java.lang.String[] { "en_US", "Markdown" }, new java.lang.String[] { "nl_NL", "Markdown" } }),
+	plain_text(new java.lang.String[][] { new java.lang.String[] { "en_US", "Plain text" }, new java.lang.String[] { "nl_NL", "Platte tekst" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 

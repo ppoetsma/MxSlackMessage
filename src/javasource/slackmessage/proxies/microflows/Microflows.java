@@ -128,13 +128,13 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static boolean message_CreateAndSend(IContext context, java.lang.String _notificationText200, slackmessage.proxies.EnumTextType _notificationTextType, java.lang.String _text3000, slackmessage.proxies.EnumTextType _text3000TextType, java.lang.String _webhookKey)
+	public static boolean message_CreateAndSend(IContext context, java.lang.String _notificationText200, slackmessage.proxies.EnumTextType _notificationText200Type, java.lang.String _text3000, slackmessage.proxies.EnumTextType _text3000TextType, java.lang.String _webhookKey)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("NotificationText200", _notificationText200);
-			params.put("NotificationTextType", _notificationTextType == null ? null : _notificationTextType.name());
+			params.put("NotificationText200Type", _notificationText200Type == null ? null : _notificationText200Type.name());
 			params.put("Text3000", _text3000);
 			params.put("Text3000TextType", _text3000TextType == null ? null : _text3000TextType.name());
 			params.put("WebhookKey", _webhookKey);

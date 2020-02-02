@@ -6,7 +6,7 @@ package slackmessage.proxies;
 
 public enum EnumBlockType
 {
-	section(new java.lang.String[][] { new java.lang.String[] { "en_US", "section" } });
+	section(new java.lang.String[][] { new java.lang.String[] { "en_US", "section" }, new java.lang.String[] { "nl_NL", "sectie" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 

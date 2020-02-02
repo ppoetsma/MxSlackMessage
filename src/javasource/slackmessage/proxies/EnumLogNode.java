@@ -6,7 +6,7 @@ package slackmessage.proxies;
 
 public enum EnumLogNode
 {
-	SlackMessage(new java.lang.String[][] { new java.lang.String[] { "en_US", "SlackMessage" } });
+	SlackMessage(new java.lang.String[][] { new java.lang.String[] { "en_US", "SlackMessage" }, new java.lang.String[] { "nl_NL", "SlackMessage" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 
