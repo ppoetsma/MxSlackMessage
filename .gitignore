@@ -16,3 +16,6 @@ test/*.project
 test/deployment
 test/GPUCache
 test/releases
+
+# Visual Studio
+.vscode
