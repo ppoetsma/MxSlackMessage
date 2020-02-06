@@ -44,7 +44,7 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static slackmessage.proxies.Message dS_Message(IContext context, slackmessage.proxies.TestMessage _testMessage)
+	public static slackmessage.proxies.Message dS_Message(IContext context, home.proxies.TestMessage _testMessage)
 	{
 		try
 		{
@@ -65,20 +65,6 @@ public class Microflows
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("Blocks", _blocks == null ? null : _blocks.getMendixObject());
 			Core.execute(context, "SlackMessage.IVK_Blocks_AddBlock", params);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
-	public static void iVK_TestMessage_SendToSlack(IContext context, slackmessage.proxies.TestMessage _testMessage, slackmessage.proxies.Message _message)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("TestMessage", _testMessage == null ? null : _testMessage.getMendixObject());
-			params.put("Message", _message == null ? null : _message.getMendixObject());
-			Core.execute(context, "SlackMessage.IVK_TestMessage_SendToSlack", params);
 		}
 		catch (CoreException e)
 		{

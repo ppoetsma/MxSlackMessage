@@ -26,4 +26,18 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static void iVK_TestMessage_SendToSlack(IContext context, home.proxies.TestMessage _testMessage, slackmessage.proxies.Message _message)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("TestMessage", _testMessage == null ? null : _testMessage.getMendixObject());
+			params.put("Message", _message == null ? null : _message.getMendixObject());
+			Core.execute(context, "Home.IVK_TestMessage_SendToSlack", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 }
