@@ -20,7 +20,7 @@ Download the module from the AppStore and add it to your project.
 
 The module offers these two roles:
 
-* **Administrator** - manage Webhooks and test creating and sending messages manually
+* **Administrator** - manage Webhooks
 * **User** - the minimum needed for regular users
 
 ## Create incoming Webhook(s)
@@ -41,17 +41,17 @@ Microflow **Message_CreateAndSend** can be used to send a single line message to
 
 The microflow has these parameters:
 
-* **NotificationText200** - the text to be shown in the OS notification, max 200 characters
-* **NotificationText200Type** - specify if the text markup is plain text or markdown
-* **Text3000** - the text with the "real" message, max 3000 characters; when *empty* then it is skipped and the notification text is used
-* **Text3000TextType** - specify if the text markup is plain text or markdown
+* **NotificationText** - the text to be shown in the OS notification, max 200 characters
+* **NotificationTextType** - specify if the text markup is plain text or markdown
+* **MessageText** - the text with the "real" message, max 3000 characters; when *empty* then it is skipped and the notification text is used
+* **MessageTextType** - specify if the text markup is plain text or markdown
 * **WebhookKey** - the key of the Webhook to send the message to
 
 More details about, for example, text markup are in the paragraphs below.
 
-## Create message
+## Create and send a multi-line message
 
-You start by creating the basis of a message using microflow **Message_Initialize**. It requires a string that contains the text to be shown in the notification created by Slack. So this is not the message in the channel, but an OS notification telling that there is a message. [Markdown](https://api.slack.com/reference/surfaces/formatting) can be used in this message.
+You start a multi-line message by creating the basis of a message using microflow **Message_Initialize**. It requires a string that contains the text to be shown in the notification created by Slack. So this is not the message in the channel, but an OS notification telling that there is a message. [Markdown](https://api.slack.com/reference/surfaces/formatting) can be used in this message.
 
 Next you add one or more lines to your message using microflow **Message_AddLine**. Also here [Markdown](https://api.slack.com/reference/surfaces/formatting) is supported.
 
@@ -63,12 +63,10 @@ An example of the text in such a line is below. The resulting message starts wit
 
 An easy way to find the name of an emoji is to create a message in Slack manually and add the desired emoji. The popup where you search for your emoji shows the string to use.
 
-## Send message
-
 When you have created the message you send it using microflow **Message_Send**. It requires the key of the Webhook that you created before.
 
 On failure check the log file for details.
 
 ## Test creating and sending messages
 
-Via snippet **SN_TestMessage** you can create messages and send them to Slack to test how it all works. Especially using emoji's and markdown might require some testing to be sure that your messages are formatted as expected.
+The GitHub repo contains a Mendix model that can be used to test the module before adding it to your project.
