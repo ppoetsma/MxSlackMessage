@@ -1,4 +1,4 @@
-# MxSlackMessage
+# SlackMessage
 
 This module has a single purpose: send messages to Slack channels.
 
