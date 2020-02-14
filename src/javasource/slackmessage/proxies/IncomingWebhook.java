@@ -4,16 +4,16 @@
 
 package slackmessage.proxies;
 
-public class Webhook
+public class IncomingWebhook
 {
-	private final com.mendix.systemwideinterfaces.core.IMendixObject webhookMendixObject;
+	private final com.mendix.systemwideinterfaces.core.IMendixObject incomingWebhookMendixObject;
 
 	private final com.mendix.systemwideinterfaces.core.IContext context;
 
 	/**
 	 * Internal name of this entity
 	 */
-	public static final java.lang.String entityName = "SlackMessage.Webhook";
+	public static final java.lang.String entityName = "SlackMessage.IncomingWebhook";
 
 	/**
 	 * Enum describing members of this entity
@@ -22,7 +22,8 @@ public class Webhook
 	{
 		Label("Label"),
 		Key("Key"),
-		URL("URL");
+		URL("URL"),
+		IsValid("IsValid");
 
 		private java.lang.String metaName;
 
@@ -38,51 +39,51 @@ public class Webhook
 		}
 	}
 
-	public Webhook(com.mendix.systemwideinterfaces.core.IContext context)
+	public IncomingWebhook(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "SlackMessage.Webhook"));
+		this(context, com.mendix.core.Core.instantiate(context, "SlackMessage.IncomingWebhook"));
 	}
 
-	protected Webhook(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject webhookMendixObject)
+	protected IncomingWebhook(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject incomingWebhookMendixObject)
 	{
-		if (webhookMendixObject == null)
+		if (incomingWebhookMendixObject == null)
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("SlackMessage.Webhook", webhookMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a SlackMessage.Webhook");
+		if (!com.mendix.core.Core.isSubClassOf("SlackMessage.IncomingWebhook", incomingWebhookMendixObject.getType()))
+			throw new java.lang.IllegalArgumentException("The given object is not a SlackMessage.IncomingWebhook");
 
-		this.webhookMendixObject = webhookMendixObject;
+		this.incomingWebhookMendixObject = incomingWebhookMendixObject;
 		this.context = context;
 	}
 
 	/**
-	 * @deprecated Use 'Webhook.load(IContext, IMendixIdentifier)' instead.
+	 * @deprecated Use 'IncomingWebhook.load(IContext, IMendixIdentifier)' instead.
 	 */
 	@java.lang.Deprecated
-	public static slackmessage.proxies.Webhook initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static slackmessage.proxies.IncomingWebhook initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
-		return slackmessage.proxies.Webhook.load(context, mendixIdentifier);
+		return slackmessage.proxies.IncomingWebhook.load(context, mendixIdentifier);
 	}
 
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
 	 */
-	public static slackmessage.proxies.Webhook initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
+	public static slackmessage.proxies.IncomingWebhook initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		return new slackmessage.proxies.Webhook(context, mendixObject);
+		return new slackmessage.proxies.IncomingWebhook(context, mendixObject);
 	}
 
-	public static slackmessage.proxies.Webhook load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static slackmessage.proxies.IncomingWebhook load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
-		return slackmessage.proxies.Webhook.initialize(context, mendixObject);
+		return slackmessage.proxies.IncomingWebhook.initialize(context, mendixObject);
 	}
 
-	public static java.util.List<slackmessage.proxies.Webhook> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
+	public static java.util.List<slackmessage.proxies.IncomingWebhook> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<slackmessage.proxies.Webhook> result = new java.util.ArrayList<slackmessage.proxies.Webhook>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//SlackMessage.Webhook" + xpathConstraint))
-			result.add(slackmessage.proxies.Webhook.initialize(context, obj));
+		java.util.List<slackmessage.proxies.IncomingWebhook> result = new java.util.ArrayList<slackmessage.proxies.IncomingWebhook>();
+		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//SlackMessage.IncomingWebhook" + xpathConstraint))
+			result.add(slackmessage.proxies.IncomingWebhook.initialize(context, obj));
 		return result;
 	}
 
@@ -226,11 +227,55 @@ public class Webhook
 	}
 
 	/**
+	 * Set value of IsValid
+	 * @param isvalid
+	 */
+	public final slackmessage.proxies.EnumIncomingWebhookIsValid getIsValid()
+	{
+		return getIsValid(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of IsValid
+	 */
+	public final slackmessage.proxies.EnumIncomingWebhookIsValid getIsValid(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		Object obj = getMendixObject().getValue(context, MemberNames.IsValid.toString());
+		if (obj == null)
+			return null;
+
+		return slackmessage.proxies.EnumIncomingWebhookIsValid.valueOf((java.lang.String) obj);
+	}
+
+	/**
+	 * Set value of IsValid
+	 * @param isvalid
+	 */
+	public final void setIsValid(slackmessage.proxies.EnumIncomingWebhookIsValid isvalid)
+	{
+		setIsValid(getContext(), isvalid);
+	}
+
+	/**
+	 * Set value of IsValid
+	 * @param context
+	 * @param isvalid
+	 */
+	public final void setIsValid(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumIncomingWebhookIsValid isvalid)
+	{
+		if (isvalid != null)
+			getMendixObject().setValue(context, MemberNames.IsValid.toString(), isvalid.toString());
+		else
+			getMendixObject().setValue(context, MemberNames.IsValid.toString(), null);
+	}
+
+	/**
 	 * @return the IMendixObject instance of this proxy for use in the Core interface.
 	 */
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
-		return webhookMendixObject;
+		return incomingWebhookMendixObject;
 	}
 
 	/**
@@ -249,7 +294,7 @@ public class Webhook
 
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
-			final slackmessage.proxies.Webhook that = (slackmessage.proxies.Webhook) obj;
+			final slackmessage.proxies.IncomingWebhook that = (slackmessage.proxies.IncomingWebhook) obj;
 			return getMendixObject().equals(that.getMendixObject());
 		}
 		return false;
@@ -266,7 +311,7 @@ public class Webhook
 	 */
 	public static java.lang.String getType()
 	{
-		return "SlackMessage.Webhook";
+		return "SlackMessage.IncomingWebhook";
 	}
 
 	/**

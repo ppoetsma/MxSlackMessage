@@ -10,30 +10,109 @@ import com.mendix.core.Core;
 import com.mendix.core.CoreException;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class Microflows
 {
 	// These are the microflows for the Home module
-	public static void iVK_Home_SendMessage(IContext context)
+	public static boolean afterStartup(IContext context)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			Core.execute(context, "Home.IVK_Home_SendMessage", params);
+			return (java.lang.Boolean)Core.execute(context, "Home.AfterStartup", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void iVK_TestMessage_SendToSlack(IContext context, home.proxies.TestMessage _testMessage, slackmessage.proxies.Message _message)
+	public static slackmessage.proxies.Message dS_TestMessage_UnpackMessage(IContext context, home.proxies.TestMessage _testMessage)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("TestMessage", _testMessage == null ? null : _testMessage.getMendixObject());
+			IMendixObject result = (IMendixObject)Core.execute(context, "Home.DS_TestMessage_UnpackMessage", params);
+			return result == null ? null : slackmessage.proxies.Message.initialize(context, result);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_Blocks_AddBlock(IContext context, slackmessage.proxies.Blocks _blocks)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Blocks", _blocks == null ? null : _blocks.getMendixObject());
+			Core.execute(context, "Home.IVK_Blocks_AddBlock", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_SendToURL_SendToSlack(IContext context, home.proxies.SendToURL _sendToURL)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SendToURL", _sendToURL == null ? null : _sendToURL.getMendixObject());
+			Core.execute(context, "Home.IVK_SendToURL_SendToSlack", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_TestMessage_NewByKey(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			Core.execute(context, "Home.IVK_TestMessage_NewByKey", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_TestMessage_NewByURL(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			Core.execute(context, "Home.IVK_TestMessage_NewByURL", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_TestMessage_Save(IContext context, home.proxies.TestMessage _testMessage, slackmessage.proxies.Message _message)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("TestMessage", _testMessage == null ? null : _testMessage.getMendixObject());
 			params.put("Message", _message == null ? null : _message.getMendixObject());
-			Core.execute(context, "Home.IVK_TestMessage_SendToSlack", params);
+			Core.execute(context, "Home.IVK_TestMessage_Save", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_TestMessage_SaveAndSendToSlack(IContext context, home.proxies.TestMessage _testMessage, slackmessage.proxies.Message _message)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("TestMessage", _testMessage == null ? null : _testMessage.getMendixObject());
+			params.put("Message", _message == null ? null : _message.getMendixObject());
+			Core.execute(context, "Home.IVK_TestMessage_SaveAndSendToSlack", params);
 		}
 		catch (CoreException e)
 		{

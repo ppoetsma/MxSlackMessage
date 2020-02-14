@@ -15,6 +15,31 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 public class Microflows
 {
 	// These are the microflows for the SlackMessage module
+	public static void aSu_SlackMessage(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			Core.execute(context, "SlackMessage.ASu_SlackMessage", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static boolean bCo_IncomingWebhook(IContext context, slackmessage.proxies.IncomingWebhook _incomingWebhook)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("IncomingWebhook", _incomingWebhook == null ? null : _incomingWebhook.getMendixObject());
+			return (java.lang.Boolean)Core.execute(context, "SlackMessage.BCo_IncomingWebhook", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static slackmessage.proxies.EnumTextType convert_Mrkdwn_TextType(IContext context, boolean _mrkdwn)
 	{
 		try
@@ -44,54 +69,171 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static slackmessage.proxies.Message dS_Message(IContext context, home.proxies.TestMessage _testMessage)
+	public static java.lang.String decryptString(IContext context, java.lang.String _stringToDecrypt)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("TestMessage", _testMessage == null ? null : _testMessage.getMendixObject());
-			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.DS_Message", params);
-			return result == null ? null : slackmessage.proxies.Message.initialize(context, result);
+			params.put("StringToDecrypt", _stringToDecrypt);
+			return (java.lang.String)Core.execute(context, "SlackMessage.DecryptString", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void iVK_Blocks_AddBlock(IContext context, slackmessage.proxies.Blocks _blocks)
+	public static java.lang.String encryptString(IContext context, java.lang.String _stringToEncrypt)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Blocks", _blocks == null ? null : _blocks.getMendixObject());
-			Core.execute(context, "SlackMessage.IVK_Blocks_AddBlock", params);
+			params.put("StringToEncrypt", _stringToEncrypt);
+			return (java.lang.String)Core.execute(context, "SlackMessage.EncryptString", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void iVK_Webhook_Save(IContext context, slackmessage.proxies.Webhook _webhook)
+	public static slackmessage.proxies.IncomingWebhook incomingWebhook_Ensure(IContext context, java.lang.String _label, java.lang.String _key, java.lang.String _uRL)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Webhook", _webhook == null ? null : _webhook.getMendixObject());
-			Core.execute(context, "SlackMessage.IVK_Webhook_Save", params);
+			params.put("Label", _label);
+			params.put("Key", _key);
+			params.put("URL", _uRL);
+			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.IncomingWebhook_Ensure", params);
+			return result == null ? null : slackmessage.proxies.IncomingWebhook.initialize(context, result);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void message_AddLine(IContext context, slackmessage.proxies.Message _message, slackmessage.proxies.EnumTextType _textType, java.lang.String _text3000)
+	public static slackmessage.proxies.IncomingWebhook incomingWebhook_RetrieveByKey(IContext context, java.lang.String _incomingWebhookKey, boolean _autoCreate)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("IncomingWebhookKey", _incomingWebhookKey);
+			params.put("AutoCreate", _autoCreate);
+			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.IncomingWebhook_RetrieveByKey", params);
+			return result == null ? null : slackmessage.proxies.IncomingWebhook.initialize(context, result);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static slackmessage.proxies.IncomingWebhook incomingWebhook_Upsert(IContext context, java.lang.String _label, java.lang.String _key, java.lang.String _uRL)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Label", _label);
+			params.put("Key", _key);
+			params.put("URL", _uRL);
+			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.IncomingWebhook_Upsert", params);
+			return result == null ? null : slackmessage.proxies.IncomingWebhook.initialize(context, result);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static boolean incomingWebhook_Validate(IContext context, slackmessage.proxies.IncomingWebhook _incomingWebhook)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("IncomingWebhook", _incomingWebhook == null ? null : _incomingWebhook.getMendixObject());
+			return (java.lang.Boolean)Core.execute(context, "SlackMessage.IncomingWebhook_Validate", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_IncomingWebhook_New(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			Core.execute(context, "SlackMessage.IVK_IncomingWebhook_New", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_IncomingWebhook_Save(IContext context, slackmessage.proxies.IncomingWebhook _incomingWebhook)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("IncomingWebhook", _incomingWebhook == null ? null : _incomingWebhook.getMendixObject());
+			Core.execute(context, "SlackMessage.IVK_IncomingWebhook_Save", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_IncomingWebhook_SendTestMessage(IContext context, slackmessage.proxies.IncomingWebhook _incomingWebhook)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("IncomingWebhook", _incomingWebhook == null ? null : _incomingWebhook.getMendixObject());
+			Core.execute(context, "SlackMessage.IVK_IncomingWebhook_SendTestMessage", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_IncomingWebhook_SendTestMessageNotification(IContext context, slackmessage.proxies.IncomingWebhook _incomingWebhook)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("IncomingWebhook", _incomingWebhook == null ? null : _incomingWebhook.getMendixObject());
+			Core.execute(context, "SlackMessage.IVK_IncomingWebhook_SendTestMessageNotification", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void iVK_IncomingWebhookList_Encrypt(IContext context, java.util.List<slackmessage.proxies.IncomingWebhook> _incomingWebhookList)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			java.util.ArrayList<IMendixObject> listparam_incomingWebhookList = null;
+			if (_incomingWebhookList != null)
+			{
+				listparam_incomingWebhookList = new java.util.ArrayList<IMendixObject>();
+				for (slackmessage.proxies.IncomingWebhook obj : _incomingWebhookList)
+					listparam_incomingWebhookList.add(obj.getMendixObject());
+			}
+			params.put("IncomingWebhookList", listparam_incomingWebhookList);
+			Core.execute(context, "SlackMessage.IVK_IncomingWebhookList_Encrypt", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void message_AddLine(IContext context, slackmessage.proxies.Message _message, slackmessage.proxies.EnumTextType _textType, java.lang.String _messageText)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("Message", _message == null ? null : _message.getMendixObject());
 			params.put("TextType", _textType == null ? null : _textType.name());
-			params.put("Text3000", _text3000);
+			params.put("MessageText", _messageText);
 			Core.execute(context, "SlackMessage.Message_AddLine", params);
 		}
 		catch (CoreException e)
@@ -99,12 +241,12 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static slackmessage.proxies.Message message_Create(IContext context, java.lang.String _notificationText200, slackmessage.proxies.EnumTextType _textType)
+	public static slackmessage.proxies.Message message_Create(IContext context, java.lang.String _notificationText, slackmessage.proxies.EnumTextType _textType)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("NotificationText200", _notificationText200);
+			params.put("NotificationText", _notificationText);
 			params.put("TextType", _textType == null ? null : _textType.name());
 			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.Message_Create", params);
 			return result == null ? null : slackmessage.proxies.Message.initialize(context, result);
@@ -114,74 +256,135 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static boolean message_CreateAndSend(IContext context, java.lang.String _notificationText200, slackmessage.proxies.EnumTextType _notificationText200Type, java.lang.String _text3000, slackmessage.proxies.EnumTextType _text3000TextType, java.lang.String _webhookKey)
+	public static boolean message_CreateAndSendToWebhookKey(IContext context, java.lang.String _notificationText, slackmessage.proxies.EnumTextType _notificationTextType, java.lang.String _messageText, slackmessage.proxies.EnumTextType _messageTextType, java.lang.String _incomingWebhookKey, boolean _sendAsync)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("NotificationText200", _notificationText200);
-			params.put("NotificationText200Type", _notificationText200Type == null ? null : _notificationText200Type.name());
-			params.put("Text3000", _text3000);
-			params.put("Text3000TextType", _text3000TextType == null ? null : _text3000TextType.name());
-			params.put("WebhookKey", _webhookKey);
-			return (java.lang.Boolean)Core.execute(context, "SlackMessage.Message_CreateAndSend", params);
+			params.put("NotificationText", _notificationText);
+			params.put("NotificationTextType", _notificationTextType == null ? null : _notificationTextType.name());
+			params.put("MessageText", _messageText);
+			params.put("MessageTextType", _messageTextType == null ? null : _messageTextType.name());
+			params.put("IncomingWebhookKey", _incomingWebhookKey);
+			params.put("SendAsync", _sendAsync);
+			return (java.lang.Boolean)Core.execute(context, "SlackMessage.Message_CreateAndSendToWebhookKey", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static boolean message_Send(IContext context, slackmessage.proxies.Message _message, java.lang.String _webhookKey)
+	public static boolean message_CreateAndSendToWebhookURL(IContext context, java.lang.String _notificationText, slackmessage.proxies.EnumTextType _notificationTextType, java.lang.String _messageText, slackmessage.proxies.EnumTextType _messageTextType, java.lang.String _incomingWebhookURL, boolean _sendAsync)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("NotificationText", _notificationText);
+			params.put("NotificationTextType", _notificationTextType == null ? null : _notificationTextType.name());
+			params.put("MessageText", _messageText);
+			params.put("MessageTextType", _messageTextType == null ? null : _messageTextType.name());
+			params.put("IncomingWebhookURL", _incomingWebhookURL);
+			params.put("SendAsync", _sendAsync);
+			return (java.lang.Boolean)Core.execute(context, "SlackMessage.Message_CreateAndSendToWebhookURL", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static java.lang.String message_ExportToJSON(IContext context, slackmessage.proxies.Message _message)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("Message", _message == null ? null : _message.getMendixObject());
-			params.put("WebhookKey", _webhookKey);
-			return (java.lang.Boolean)Core.execute(context, "SlackMessage.Message_Send", params);
+			return (java.lang.String)Core.execute(context, "SlackMessage.Message_ExportToJSON", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static slackmessage.proxies.Webhook webhook_Ensure(IContext context, java.lang.String _label, java.lang.String _key, java.lang.String _uRL)
+	public static boolean message_SendToWebhookKey(IContext context, java.lang.String _incomingWebhookKey, slackmessage.proxies.Message _message, boolean _sendAsync)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Label", _label);
-			params.put("Key", _key);
-			params.put("URL", _uRL);
-			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.Webhook_Ensure", params);
-			return result == null ? null : slackmessage.proxies.Webhook.initialize(context, result);
+			params.put("IncomingWebhookKey", _incomingWebhookKey);
+			params.put("Message", _message == null ? null : _message.getMendixObject());
+			params.put("SendAsync", _sendAsync);
+			return (java.lang.Boolean)Core.execute(context, "SlackMessage.Message_SendToWebhookKey", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static slackmessage.proxies.Webhook webhook_RetrieveByKey(IContext context, java.lang.String _webhookKey)
+	public static boolean message_SendToWebhookURL(IContext context, java.lang.String _incomingWebhookURL, slackmessage.proxies.Message _message, boolean _sendAsync)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("WebhookKey", _webhookKey);
-			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.Webhook_RetrieveByKey", params);
-			return result == null ? null : slackmessage.proxies.Webhook.initialize(context, result);
+			params.put("IncomingWebhookURL", _incomingWebhookURL);
+			params.put("Message", _message == null ? null : _message.getMendixObject());
+			params.put("SendAsync", _sendAsync);
+			return (java.lang.Boolean)Core.execute(context, "SlackMessage.Message_SendToWebhookURL", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static boolean webhook_Validate(IContext context, slackmessage.proxies.Webhook _webhook)
+	public static void sE_SendToSlackHelper_Cleanup(IContext context)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("Webhook", _webhook == null ? null : _webhook.getMendixObject());
-			return (java.lang.Boolean)Core.execute(context, "SlackMessage.Webhook_Validate", params);
+			Core.execute(context, "SlackMessage.SE_SendToSlackHelper_Cleanup", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static slackmessage.proxies.SendToSlackHelper sendToSlackHelper_Create(IContext context, java.lang.String _incomingWebhookString, slackmessage.proxies.EnumSendToSlackHelper_IncomingWebhookType _incomingWebhookType, slackmessage.proxies.Message _message, boolean _persist, boolean _sendAsync)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("IncomingWebhookString", _incomingWebhookString);
+			params.put("IncomingWebhookType", _incomingWebhookType == null ? null : _incomingWebhookType.name());
+			params.put("Message", _message == null ? null : _message.getMendixObject());
+			params.put("Persist", _persist);
+			params.put("SendAsync", _sendAsync);
+			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.SendToSlackHelper_Create", params);
+			return result == null ? null : slackmessage.proxies.SendToSlackHelper.initialize(context, result);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static boolean sendToSlackHelper_Post(IContext context, slackmessage.proxies.SendToSlackHelper _sendToSlackHelper)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SendToSlackHelper", _sendToSlackHelper == null ? null : _sendToSlackHelper.getMendixObject());
+			return (java.lang.Boolean)Core.execute(context, "SlackMessage.SendToSlackHelper_Post", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static boolean sendToSlackHelper_Send(IContext context, slackmessage.proxies.SendToSlackHelper _sendToSlackHelper)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SendToSlackHelper", _sendToSlackHelper == null ? null : _sendToSlackHelper.getMendixObject());
+			return (java.lang.Boolean)Core.execute(context, "SlackMessage.SendToSlackHelper_Send", params);
 		}
 		catch (CoreException e)
 		{

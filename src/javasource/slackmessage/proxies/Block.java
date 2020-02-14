@@ -21,7 +21,7 @@ public class Block
 	public enum MemberNames
 	{
 		BlockType("BlockType"),
-		Text_Block("SlackMessage.Text_Block"),
+		MessageText_Block("SlackMessage.MessageText_Block"),
 		Block_Blocks("SlackMessage.Block_Blocks");
 
 		private java.lang.String metaName;
@@ -154,46 +154,46 @@ public class Block
 	}
 
 	/**
-	 * @return value of Text_Block
+	 * @return value of MessageText_Block
 	 */
-	public final slackmessage.proxies.Text getText_Block() throws com.mendix.core.CoreException
+	public final slackmessage.proxies.MessageText getMessageText_Block() throws com.mendix.core.CoreException
 	{
-		return getText_Block(getContext());
+		return getMessageText_Block(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of Text_Block
+	 * @return value of MessageText_Block
 	 */
-	public final slackmessage.proxies.Text getText_Block(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final slackmessage.proxies.MessageText getMessageText_Block(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		slackmessage.proxies.Text result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Text_Block.toString());
+		slackmessage.proxies.MessageText result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MessageText_Block.toString());
 		if (identifier != null)
-			result = slackmessage.proxies.Text.load(context, identifier);
+			result = slackmessage.proxies.MessageText.load(context, identifier);
 		return result;
 	}
 
 	/**
-	 * Set value of Text_Block
-	 * @param text_block
+	 * Set value of MessageText_Block
+	 * @param messagetext_block
 	 */
-	public final void setText_Block(slackmessage.proxies.Text text_block)
+	public final void setMessageText_Block(slackmessage.proxies.MessageText messagetext_block)
 	{
-		setText_Block(getContext(), text_block);
+		setMessageText_Block(getContext(), messagetext_block);
 	}
 
 	/**
-	 * Set value of Text_Block
+	 * Set value of MessageText_Block
 	 * @param context
-	 * @param text_block
+	 * @param messagetext_block
 	 */
-	public final void setText_Block(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Text text_block)
+	public final void setMessageText_Block(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.MessageText messagetext_block)
 	{
-		if (text_block == null)
-			getMendixObject().setValue(context, MemberNames.Text_Block.toString(), null);
+		if (messagetext_block == null)
+			getMendixObject().setValue(context, MemberNames.MessageText_Block.toString(), null);
 		else
-			getMendixObject().setValue(context, MemberNames.Text_Block.toString(), text_block.getMendixObject().getId());
+			getMendixObject().setValue(context, MemberNames.MessageText_Block.toString(), messagetext_block.getMendixObject().getId());
 	}
 
 	/**

@@ -20,8 +20,8 @@ public class Message
 	 */
 	public enum MemberNames
 	{
-		TextType("TextType"),
-		Text("Text"),
+		NotificationTextType("NotificationTextType"),
+		NotificationText("NotificationText"),
 		Blocks_Message("SlackMessage.Blocks_Message");
 
 		private java.lang.String metaName;
@@ -110,21 +110,21 @@ public class Message
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
-	 * Set value of TextType
-	 * @param texttype
+	 * Set value of NotificationTextType
+	 * @param notificationtexttype
 	 */
-	public final slackmessage.proxies.EnumTextType getTextType()
+	public final slackmessage.proxies.EnumTextType getNotificationTextType()
 	{
-		return getTextType(getContext());
+		return getNotificationTextType(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of TextType
+	 * @return value of NotificationTextType
 	 */
-	public final slackmessage.proxies.EnumTextType getTextType(com.mendix.systemwideinterfaces.core.IContext context)
+	public final slackmessage.proxies.EnumTextType getNotificationTextType(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		Object obj = getMendixObject().getValue(context, MemberNames.TextType.toString());
+		Object obj = getMendixObject().getValue(context, MemberNames.NotificationTextType.toString());
 		if (obj == null)
 			return null;
 
@@ -132,61 +132,61 @@ public class Message
 	}
 
 	/**
-	 * Set value of TextType
-	 * @param texttype
+	 * Set value of NotificationTextType
+	 * @param notificationtexttype
 	 */
-	public final void setTextType(slackmessage.proxies.EnumTextType texttype)
+	public final void setNotificationTextType(slackmessage.proxies.EnumTextType notificationtexttype)
 	{
-		setTextType(getContext(), texttype);
+		setNotificationTextType(getContext(), notificationtexttype);
 	}
 
 	/**
-	 * Set value of TextType
+	 * Set value of NotificationTextType
 	 * @param context
-	 * @param texttype
+	 * @param notificationtexttype
 	 */
-	public final void setTextType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumTextType texttype)
+	public final void setNotificationTextType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumTextType notificationtexttype)
 	{
-		if (texttype != null)
-			getMendixObject().setValue(context, MemberNames.TextType.toString(), texttype.toString());
+		if (notificationtexttype != null)
+			getMendixObject().setValue(context, MemberNames.NotificationTextType.toString(), notificationtexttype.toString());
 		else
-			getMendixObject().setValue(context, MemberNames.TextType.toString(), null);
+			getMendixObject().setValue(context, MemberNames.NotificationTextType.toString(), null);
 	}
 
 	/**
-	 * @return value of Text
+	 * @return value of NotificationText
 	 */
-	public final java.lang.String getText()
+	public final java.lang.String getNotificationText()
 	{
-		return getText(getContext());
+		return getNotificationText(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of Text
+	 * @return value of NotificationText
 	 */
-	public final java.lang.String getText(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getNotificationText(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Text.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.NotificationText.toString());
 	}
 
 	/**
-	 * Set value of Text
-	 * @param text
+	 * Set value of NotificationText
+	 * @param notificationtext
 	 */
-	public final void setText(java.lang.String text)
+	public final void setNotificationText(java.lang.String notificationtext)
 	{
-		setText(getContext(), text);
+		setNotificationText(getContext(), notificationtext);
 	}
 
 	/**
-	 * Set value of Text
+	 * Set value of NotificationText
 	 * @param context
-	 * @param text
+	 * @param notificationtext
 	 */
-	public final void setText(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String text)
+	public final void setNotificationText(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String notificationtext)
 	{
-		getMendixObject().setValue(context, MemberNames.Text.toString(), text);
+		getMendixObject().setValue(context, MemberNames.NotificationText.toString(), notificationtext);
 	}
 
 	/**

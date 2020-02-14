@@ -11,7 +11,47 @@ public class Constants
 	// These are the constants for the SlackMessage module
 
 	/**
-	* The number of seconds to wait max for Slack to respond when sending the message.
+	* Automatically create the requested IncomingWebhook object, marked invalid, to be completed later. Every used Incoming Webhook should be defined and marked valid. But when an unknown webhook is used then it is added to be completed manually.
+	*/
+	public static boolean getAutoCreateIncomingWebhook()
+	{
+		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("SlackMessage.AutoCreateIncomingWebhook");
+	}
+
+	/**
+	* The encryption key used to encrypt sensitive data like the Incoming Webhook URL which does not need authentication. Its length should exactly be 16 characters (128 bit).
+	*/
+	public static java.lang.String getEncryptionKey()
+	{
+		return (java.lang.String)Core.getConfiguration().getConstantValue("SlackMessage.EncryptionKey");
+	}
+
+	/**
+	* Please do not change this.
+	*/
+	public static java.lang.String getEncryptionPrefix()
+	{
+		return (java.lang.String)Core.getConfiguration().getConstantValue("SlackMessage.EncryptionPrefix");
+	}
+
+	/**
+	* When needed the module can be disabled on all runtime environments so it does not send messages. By default messages are sent in all environments other than development.
+	*/
+	public static boolean getSendEnabled()
+	{
+		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("SlackMessage.SendEnabled");
+	}
+
+	/**
+	* By default messages are not sent in development environments. This prevents messages to be sent when running your app in Modeler/Studio Pro.
+	*/
+	public static boolean getSendEnabledInDev()
+	{
+		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("SlackMessage.SendEnabledInDev");
+	}
+
+	/**
+	* Slack web service request timeout in seconds.
 	*/
 	public static java.lang.Long getSlackRequestTimeout()
 	{

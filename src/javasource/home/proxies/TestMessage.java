@@ -22,7 +22,10 @@ public class TestMessage
 	{
 		Message("Message"),
 		Response("Response"),
-		TestMessage_Webhook("Home.TestMessage_Webhook");
+		URL("URL"),
+		SendBy("SendBy"),
+		SendAsync("SendAsync"),
+		TestMessage_IncomingWebhook("Home.TestMessage_IncomingWebhook");
 
 		private java.lang.String metaName;
 
@@ -190,46 +193,162 @@ public class TestMessage
 	}
 
 	/**
-	 * @return value of TestMessage_Webhook
+	 * @return value of URL
 	 */
-	public final slackmessage.proxies.Webhook getTestMessage_Webhook() throws com.mendix.core.CoreException
+	public final java.lang.String getURL()
 	{
-		return getTestMessage_Webhook(getContext());
+		return getURL(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of TestMessage_Webhook
+	 * @return value of URL
 	 */
-	public final slackmessage.proxies.Webhook getTestMessage_Webhook(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final java.lang.String getURL(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		slackmessage.proxies.Webhook result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TestMessage_Webhook.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.URL.toString());
+	}
+
+	/**
+	 * Set value of URL
+	 * @param url
+	 */
+	public final void setURL(java.lang.String url)
+	{
+		setURL(getContext(), url);
+	}
+
+	/**
+	 * Set value of URL
+	 * @param context
+	 * @param url
+	 */
+	public final void setURL(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String url)
+	{
+		getMendixObject().setValue(context, MemberNames.URL.toString(), url);
+	}
+
+	/**
+	 * Set value of SendBy
+	 * @param sendby
+	 */
+	public final home.proxies.EnumTestMessage_SendBy getSendBy()
+	{
+		return getSendBy(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SendBy
+	 */
+	public final home.proxies.EnumTestMessage_SendBy getSendBy(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		Object obj = getMendixObject().getValue(context, MemberNames.SendBy.toString());
+		if (obj == null)
+			return null;
+
+		return home.proxies.EnumTestMessage_SendBy.valueOf((java.lang.String) obj);
+	}
+
+	/**
+	 * Set value of SendBy
+	 * @param sendby
+	 */
+	public final void setSendBy(home.proxies.EnumTestMessage_SendBy sendby)
+	{
+		setSendBy(getContext(), sendby);
+	}
+
+	/**
+	 * Set value of SendBy
+	 * @param context
+	 * @param sendby
+	 */
+	public final void setSendBy(com.mendix.systemwideinterfaces.core.IContext context, home.proxies.EnumTestMessage_SendBy sendby)
+	{
+		if (sendby != null)
+			getMendixObject().setValue(context, MemberNames.SendBy.toString(), sendby.toString());
+		else
+			getMendixObject().setValue(context, MemberNames.SendBy.toString(), null);
+	}
+
+	/**
+	 * @return value of SendAsync
+	 */
+	public final java.lang.Boolean getSendAsync()
+	{
+		return getSendAsync(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SendAsync
+	 */
+	public final java.lang.Boolean getSendAsync(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.SendAsync.toString());
+	}
+
+	/**
+	 * Set value of SendAsync
+	 * @param sendasync
+	 */
+	public final void setSendAsync(java.lang.Boolean sendasync)
+	{
+		setSendAsync(getContext(), sendasync);
+	}
+
+	/**
+	 * Set value of SendAsync
+	 * @param context
+	 * @param sendasync
+	 */
+	public final void setSendAsync(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean sendasync)
+	{
+		getMendixObject().setValue(context, MemberNames.SendAsync.toString(), sendasync);
+	}
+
+	/**
+	 * @return value of TestMessage_IncomingWebhook
+	 */
+	public final slackmessage.proxies.IncomingWebhook getTestMessage_IncomingWebhook() throws com.mendix.core.CoreException
+	{
+		return getTestMessage_IncomingWebhook(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of TestMessage_IncomingWebhook
+	 */
+	public final slackmessage.proxies.IncomingWebhook getTestMessage_IncomingWebhook(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		slackmessage.proxies.IncomingWebhook result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TestMessage_IncomingWebhook.toString());
 		if (identifier != null)
-			result = slackmessage.proxies.Webhook.load(context, identifier);
+			result = slackmessage.proxies.IncomingWebhook.load(context, identifier);
 		return result;
 	}
 
 	/**
-	 * Set value of TestMessage_Webhook
-	 * @param testmessage_webhook
+	 * Set value of TestMessage_IncomingWebhook
+	 * @param testmessage_incomingwebhook
 	 */
-	public final void setTestMessage_Webhook(slackmessage.proxies.Webhook testmessage_webhook)
+	public final void setTestMessage_IncomingWebhook(slackmessage.proxies.IncomingWebhook testmessage_incomingwebhook)
 	{
-		setTestMessage_Webhook(getContext(), testmessage_webhook);
+		setTestMessage_IncomingWebhook(getContext(), testmessage_incomingwebhook);
 	}
 
 	/**
-	 * Set value of TestMessage_Webhook
+	 * Set value of TestMessage_IncomingWebhook
 	 * @param context
-	 * @param testmessage_webhook
+	 * @param testmessage_incomingwebhook
 	 */
-	public final void setTestMessage_Webhook(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Webhook testmessage_webhook)
+	public final void setTestMessage_IncomingWebhook(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.IncomingWebhook testmessage_incomingwebhook)
 	{
-		if (testmessage_webhook == null)
-			getMendixObject().setValue(context, MemberNames.TestMessage_Webhook.toString(), null);
+		if (testmessage_incomingwebhook == null)
+			getMendixObject().setValue(context, MemberNames.TestMessage_IncomingWebhook.toString(), null);
 		else
-			getMendixObject().setValue(context, MemberNames.TestMessage_Webhook.toString(), testmessage_webhook.getMendixObject().getId());
+			getMendixObject().setValue(context, MemberNames.TestMessage_IncomingWebhook.toString(), testmessage_incomingwebhook.getMendixObject().getId());
 	}
 
 	/**
