@@ -20,10 +20,10 @@ public class SendToSlackHelper
 	 */
 	public enum MemberNames
 	{
-		IncomingWebhook("IncomingWebhook"),
-		IncomingWebhookType("IncomingWebhookType"),
+		EncryptedURL("EncryptedURL"),
 		MessageJSON("MessageJSON"),
-		SendAsync("SendAsync");
+		SendAsync("SendAsync"),
+		Log("Log");
 
 		private java.lang.String metaName;
 
@@ -119,83 +119,39 @@ public class SendToSlackHelper
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
-	 * @return value of IncomingWebhook
+	 * @return value of EncryptedURL
 	 */
-	public final java.lang.String getIncomingWebhook()
+	public final java.lang.String getEncryptedURL()
 	{
-		return getIncomingWebhook(getContext());
+		return getEncryptedURL(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of IncomingWebhook
+	 * @return value of EncryptedURL
 	 */
-	public final java.lang.String getIncomingWebhook(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getEncryptedURL(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.IncomingWebhook.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.EncryptedURL.toString());
 	}
 
 	/**
-	 * Set value of IncomingWebhook
-	 * @param incomingwebhook
+	 * Set value of EncryptedURL
+	 * @param encryptedurl
 	 */
-	public final void setIncomingWebhook(java.lang.String incomingwebhook)
+	public final void setEncryptedURL(java.lang.String encryptedurl)
 	{
-		setIncomingWebhook(getContext(), incomingwebhook);
+		setEncryptedURL(getContext(), encryptedurl);
 	}
 
 	/**
-	 * Set value of IncomingWebhook
+	 * Set value of EncryptedURL
 	 * @param context
-	 * @param incomingwebhook
+	 * @param encryptedurl
 	 */
-	public final void setIncomingWebhook(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String incomingwebhook)
+	public final void setEncryptedURL(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String encryptedurl)
 	{
-		getMendixObject().setValue(context, MemberNames.IncomingWebhook.toString(), incomingwebhook);
-	}
-
-	/**
-	 * Set value of IncomingWebhookType
-	 * @param incomingwebhooktype
-	 */
-	public final slackmessage.proxies.EnumSendToSlackHelper_IncomingWebhookType getIncomingWebhookType()
-	{
-		return getIncomingWebhookType(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of IncomingWebhookType
-	 */
-	public final slackmessage.proxies.EnumSendToSlackHelper_IncomingWebhookType getIncomingWebhookType(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		Object obj = getMendixObject().getValue(context, MemberNames.IncomingWebhookType.toString());
-		if (obj == null)
-			return null;
-
-		return slackmessage.proxies.EnumSendToSlackHelper_IncomingWebhookType.valueOf((java.lang.String) obj);
-	}
-
-	/**
-	 * Set value of IncomingWebhookType
-	 * @param incomingwebhooktype
-	 */
-	public final void setIncomingWebhookType(slackmessage.proxies.EnumSendToSlackHelper_IncomingWebhookType incomingwebhooktype)
-	{
-		setIncomingWebhookType(getContext(), incomingwebhooktype);
-	}
-
-	/**
-	 * Set value of IncomingWebhookType
-	 * @param context
-	 * @param incomingwebhooktype
-	 */
-	public final void setIncomingWebhookType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumSendToSlackHelper_IncomingWebhookType incomingwebhooktype)
-	{
-		if (incomingwebhooktype != null)
-			getMendixObject().setValue(context, MemberNames.IncomingWebhookType.toString(), incomingwebhooktype.toString());
-		else
-			getMendixObject().setValue(context, MemberNames.IncomingWebhookType.toString(), null);
+		getMendixObject().setValue(context, MemberNames.EncryptedURL.toString(), encryptedurl);
 	}
 
 	/**
@@ -268,6 +224,42 @@ public class SendToSlackHelper
 	public final void setSendAsync(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean sendasync)
 	{
 		getMendixObject().setValue(context, MemberNames.SendAsync.toString(), sendasync);
+	}
+
+	/**
+	 * @return value of Log
+	 */
+	public final java.lang.String getLog()
+	{
+		return getLog(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Log
+	 */
+	public final java.lang.String getLog(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Log.toString());
+	}
+
+	/**
+	 * Set value of Log
+	 * @param log
+	 */
+	public final void setLog(java.lang.String log)
+	{
+		setLog(getContext(), log);
+	}
+
+	/**
+	 * Set value of Log
+	 * @param context
+	 * @param log
+	 */
+	public final void setLog(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String log)
+	{
+		getMendixObject().setValue(context, MemberNames.Log.toString(), log);
 	}
 
 	/**

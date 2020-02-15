@@ -347,7 +347,7 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static slackmessage.proxies.SendToSlackHelper sendToSlackHelper_Create(IContext context, java.lang.String _incomingWebhookString, slackmessage.proxies.EnumSendToSlackHelper_IncomingWebhookType _incomingWebhookType, slackmessage.proxies.Message _message, boolean _persist, boolean _sendAsync)
+	public static slackmessage.proxies.SendToSlackHelper sendToSlackHelper_Create(IContext context, java.lang.String _incomingWebhookString, slackmessage.proxies.EnumIncomingWebhookType _incomingWebhookType, slackmessage.proxies.Message _message, boolean _persist, boolean _sendAsync)
 	{
 		try
 		{

@@ -2,16 +2,16 @@
 //
 // WARNING: Code you write here will be lost the next time you deploy the project.
 
-package home.proxies;
+package slackmessage.proxies;
 
-public enum EnumTestMessage_SendBy
+public enum EnumIncomingWebhookType
 {
 	Key(new java.lang.String[][] { new java.lang.String[] { "en_US", "Key" }, new java.lang.String[] { "nl_NL", "Sleutel" } }),
 	URL(new java.lang.String[][] { new java.lang.String[] { "en_US", "URL" }, new java.lang.String[] { "nl_NL", "URL" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 
-	private EnumTestMessage_SendBy(java.lang.String[][] captionStrings)
+	private EnumIncomingWebhookType(java.lang.String[][] captionStrings)
 	{
 		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
 		for (java.lang.String[] captionString : captionStrings)
