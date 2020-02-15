@@ -113,7 +113,7 @@ public class MessageText
 	 * Set value of MessageTextType
 	 * @param messagetexttype
 	 */
-	public final slackmessage.proxies.EnumTextType getMessageTextType()
+	public final slackmessage.proxies.Enum_TextType getMessageTextType()
 	{
 		return getMessageTextType(getContext());
 	}
@@ -122,20 +122,20 @@ public class MessageText
 	 * @param context
 	 * @return value of MessageTextType
 	 */
-	public final slackmessage.proxies.EnumTextType getMessageTextType(com.mendix.systemwideinterfaces.core.IContext context)
+	public final slackmessage.proxies.Enum_TextType getMessageTextType(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.MessageTextType.toString());
 		if (obj == null)
 			return null;
 
-		return slackmessage.proxies.EnumTextType.valueOf((java.lang.String) obj);
+		return slackmessage.proxies.Enum_TextType.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of MessageTextType
 	 * @param messagetexttype
 	 */
-	public final void setMessageTextType(slackmessage.proxies.EnumTextType messagetexttype)
+	public final void setMessageTextType(slackmessage.proxies.Enum_TextType messagetexttype)
 	{
 		setMessageTextType(getContext(), messagetexttype);
 	}
@@ -145,7 +145,7 @@ public class MessageText
 	 * @param context
 	 * @param messagetexttype
 	 */
-	public final void setMessageTextType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumTextType messagetexttype)
+	public final void setMessageTextType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Enum_TextType messagetexttype)
 	{
 		if (messagetexttype != null)
 			getMendixObject().setValue(context, MemberNames.MessageTextType.toString(), messagetexttype.toString());

@@ -119,4 +119,44 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static void pRS_Slash_Health(IContext context, system.proxies.HttpRequest _httpRequest, system.proxies.HttpResponse _httpResponse)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("httpRequest", _httpRequest == null ? null : _httpRequest.getMendixObject());
+			params.put("httpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
+			Core.execute(context, "Home.PRS_Slash_Health", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void slash_Health_ProcessRequest(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest, system.proxies.HttpResponse _httpResponse)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
+			params.put("HttpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
+			Core.execute(context, "Home.Slash_Health_ProcessRequest", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static java.lang.String slash_Health_RunCommand(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			return (java.lang.String)Core.execute(context, "Home.Slash_Health_RunCommand", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 }
