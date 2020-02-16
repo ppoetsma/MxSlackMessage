@@ -113,7 +113,7 @@ public class Block
 	 * Set value of BlockType
 	 * @param blocktype
 	 */
-	public final slackmessage.proxies.EnumBlockType getBlockType()
+	public final slackmessage.proxies.Enum_BlockType getBlockType()
 	{
 		return getBlockType(getContext());
 	}
@@ -122,20 +122,20 @@ public class Block
 	 * @param context
 	 * @return value of BlockType
 	 */
-	public final slackmessage.proxies.EnumBlockType getBlockType(com.mendix.systemwideinterfaces.core.IContext context)
+	public final slackmessage.proxies.Enum_BlockType getBlockType(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.BlockType.toString());
 		if (obj == null)
 			return null;
 
-		return slackmessage.proxies.EnumBlockType.valueOf((java.lang.String) obj);
+		return slackmessage.proxies.Enum_BlockType.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of BlockType
 	 * @param blocktype
 	 */
-	public final void setBlockType(slackmessage.proxies.EnumBlockType blocktype)
+	public final void setBlockType(slackmessage.proxies.Enum_BlockType blocktype)
 	{
 		setBlockType(getContext(), blocktype);
 	}
@@ -145,7 +145,7 @@ public class Block
 	 * @param context
 	 * @param blocktype
 	 */
-	public final void setBlockType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumBlockType blocktype)
+	public final void setBlockType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Enum_BlockType blocktype)
 	{
 		if (blocktype != null)
 			getMendixObject().setValue(context, MemberNames.BlockType.toString(), blocktype.toString());
