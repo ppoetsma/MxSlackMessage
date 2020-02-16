@@ -6,8 +6,8 @@ package slackmessage.proxies;
 
 public enum Enum_SlashCommand_ResponseVisibility
 {
-	ephemeral(new java.lang.String[][] { new java.lang.String[] { "en_US", "Visibile to the user only" } }),
-	in_channel(new java.lang.String[][] { new java.lang.String[] { "en_US", "Visibile in the channel" } });
+	ephemeral(new java.lang.String[][] { new java.lang.String[] { "en_US", "Visibile to the user only" }, new java.lang.String[] { "nl_NL", "Alle voor de gebruiker zichtbaar" } }),
+	in_channel(new java.lang.String[][] { new java.lang.String[] { "en_US", "Visibile in the channel" }, new java.lang.String[] { "nl_NL", "Zichtbaar voor iedereen in het kanaal" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 

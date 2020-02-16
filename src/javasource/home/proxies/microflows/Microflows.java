@@ -27,6 +27,31 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static java.lang.String commandHealth_DoTheMagic(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			return (java.lang.String)Core.execute(context, "Home.CommandHealth_DoTheMagic", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void commandHealth_Process(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
+			Core.execute(context, "Home.CommandHealth_Process", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static slackmessage.proxies.Message dS_TestMessage_UnpackMessage(IContext context, home.proxies.TestMessage _testMessage)
 	{
 		try
@@ -119,40 +144,27 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void pRS_Slash_Health(IContext context, system.proxies.HttpRequest _httpRequest, system.proxies.HttpResponse _httpResponse)
+	public static void pRS_SlashCommand_AnyCommand(IContext context, system.proxies.HttpRequest _httpRequest, system.proxies.HttpResponse _httpResponse)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("httpRequest", _httpRequest == null ? null : _httpRequest.getMendixObject());
 			params.put("httpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
-			Core.execute(context, "Home.PRS_Slash_Health", params);
+			Core.execute(context, "Home.PRS_SlashCommand_AnyCommand", params);
 		}
 		catch (CoreException e)
 		{
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void slash_Health_ProcessRequest(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest, system.proxies.HttpResponse _httpResponse)
+	public static void slashCommand_AnyCommand(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
 	{
 		try
 		{
 			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
 			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
-			params.put("HttpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
-			Core.execute(context, "Home.Slash_Health_ProcessRequest", params);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
-	public static java.lang.String slash_Health_RunCommand(IContext context)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			return (java.lang.String)Core.execute(context, "Home.Slash_Health_RunCommand", params);
+			Core.execute(context, "Home.SlashCommand_AnyCommand", params);
 		}
 		catch (CoreException e)
 		{

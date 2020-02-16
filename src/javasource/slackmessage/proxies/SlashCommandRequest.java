@@ -38,7 +38,8 @@ public class SlashCommandRequest
 		SlackSignature("SlackSignature"),
 		SlackUserAgent("SlackUserAgent"),
 		ValidRequest("ValidRequest"),
-		RequestID("RequestID");
+		UUID("UUID"),
+		SlashCommandRequest_HttpResponse("SlackMessage.SlashCommandRequest_HttpResponse");
 
 		private java.lang.String metaName;
 
@@ -738,9 +739,10 @@ public class SlashCommandRequest
 	}
 
 	/**
-	 * @return value of ValidRequest
+	 * Set value of ValidRequest
+	 * @param validrequest
 	 */
-	public final java.lang.Boolean getValidRequest()
+	public final slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest getValidRequest()
 	{
 		return getValidRequest(getContext());
 	}
@@ -749,16 +751,20 @@ public class SlashCommandRequest
 	 * @param context
 	 * @return value of ValidRequest
 	 */
-	public final java.lang.Boolean getValidRequest(com.mendix.systemwideinterfaces.core.IContext context)
+	public final slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest getValidRequest(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.ValidRequest.toString());
+		Object obj = getMendixObject().getValue(context, MemberNames.ValidRequest.toString());
+		if (obj == null)
+			return null;
+
+		return slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of ValidRequest
 	 * @param validrequest
 	 */
-	public final void setValidRequest(java.lang.Boolean validrequest)
+	public final void setValidRequest(slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest validrequest)
 	{
 		setValidRequest(getContext(), validrequest);
 	}
@@ -768,45 +774,91 @@ public class SlashCommandRequest
 	 * @param context
 	 * @param validrequest
 	 */
-	public final void setValidRequest(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean validrequest)
+	public final void setValidRequest(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest validrequest)
 	{
-		getMendixObject().setValue(context, MemberNames.ValidRequest.toString(), validrequest);
+		if (validrequest != null)
+			getMendixObject().setValue(context, MemberNames.ValidRequest.toString(), validrequest.toString());
+		else
+			getMendixObject().setValue(context, MemberNames.ValidRequest.toString(), null);
 	}
 
 	/**
-	 * @return value of RequestID
+	 * @return value of UUID
 	 */
-	public final java.lang.String getRequestID()
+	public final java.lang.String getUUID()
 	{
-		return getRequestID(getContext());
+		return getUUID(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of RequestID
+	 * @return value of UUID
 	 */
-	public final java.lang.String getRequestID(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getUUID(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.RequestID.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.UUID.toString());
 	}
 
 	/**
-	 * Set value of RequestID
-	 * @param requestid
+	 * Set value of UUID
+	 * @param uuid
 	 */
-	public final void setRequestID(java.lang.String requestid)
+	public final void setUUID(java.lang.String uuid)
 	{
-		setRequestID(getContext(), requestid);
+		setUUID(getContext(), uuid);
 	}
 
 	/**
-	 * Set value of RequestID
+	 * Set value of UUID
 	 * @param context
-	 * @param requestid
+	 * @param uuid
 	 */
-	public final void setRequestID(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String requestid)
+	public final void setUUID(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String uuid)
 	{
-		getMendixObject().setValue(context, MemberNames.RequestID.toString(), requestid);
+		getMendixObject().setValue(context, MemberNames.UUID.toString(), uuid);
+	}
+
+	/**
+	 * @return value of SlashCommandRequest_HttpResponse
+	 */
+	public final system.proxies.HttpResponse getSlashCommandRequest_HttpResponse() throws com.mendix.core.CoreException
+	{
+		return getSlashCommandRequest_HttpResponse(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SlashCommandRequest_HttpResponse
+	 */
+	public final system.proxies.HttpResponse getSlashCommandRequest_HttpResponse(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.HttpResponse result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SlashCommandRequest_HttpResponse.toString());
+		if (identifier != null)
+			result = system.proxies.HttpResponse.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of SlashCommandRequest_HttpResponse
+	 * @param slashcommandrequest_httpresponse
+	 */
+	public final void setSlashCommandRequest_HttpResponse(system.proxies.HttpResponse slashcommandrequest_httpresponse)
+	{
+		setSlashCommandRequest_HttpResponse(getContext(), slashcommandrequest_httpresponse);
+	}
+
+	/**
+	 * Set value of SlashCommandRequest_HttpResponse
+	 * @param context
+	 * @param slashcommandrequest_httpresponse
+	 */
+	public final void setSlashCommandRequest_HttpResponse(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.HttpResponse slashcommandrequest_httpresponse)
+	{
+		if (slashcommandrequest_httpresponse == null)
+			getMendixObject().setValue(context, MemberNames.SlashCommandRequest_HttpResponse.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.SlashCommandRequest_HttpResponse.toString(), slashcommandrequest_httpresponse.getMendixObject().getId());
 	}
 
 	/**

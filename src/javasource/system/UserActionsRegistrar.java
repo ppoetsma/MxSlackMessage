@@ -100,6 +100,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(communitycommons.actions.TimeMeasureStart.class);
     registrator.registerUserAction(communitycommons.actions.XSSSanitize.class);
     registrator.registerUserAction(communitycommons.actions.YearsBetween.class);
+    registrator.registerUserAction(slackmessage.actions.JA_SlashCommand_RequestToJSON.class);
     registrator.registerUserAction(system.actions.VerifyPassword.class);
   }
 }

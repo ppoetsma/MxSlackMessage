@@ -77,14 +77,6 @@ public class SlashCommandResponse
 		return slackmessage.proxies.SlashCommandResponse.initialize(context, mendixObject);
 	}
 
-	public static java.util.List<slackmessage.proxies.SlashCommandResponse> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
-	{
-		java.util.List<slackmessage.proxies.SlashCommandResponse> result = new java.util.ArrayList<slackmessage.proxies.SlashCommandResponse>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//SlackMessage.SlashCommandResponse" + xpathConstraint))
-			result.add(slackmessage.proxies.SlashCommandResponse.initialize(context, obj));
-		return result;
-	}
-
 	/**
 	 * Commit the changes made on this proxy object.
 	 */

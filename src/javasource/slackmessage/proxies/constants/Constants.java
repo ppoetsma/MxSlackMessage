@@ -57,4 +57,12 @@ public class Constants
 	{
 		return (java.lang.Long)Core.getConfiguration().getConstantValue("SlackMessage.SlackRequestTimeout");
 	}
+
+	/**
+	* Slash command are process by default, but when disabled the app will send a standard response.
+	*/
+	public static boolean getSlashCommandEnabled()
+	{
+		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("SlackMessage.SlashCommandEnabled");
+	}
 }
