@@ -113,7 +113,7 @@ public class Message
 	 * Set value of NotificationTextType
 	 * @param notificationtexttype
 	 */
-	public final slackmessage.proxies.Enum_TextType getNotificationTextType()
+	public final slackmessage.proxies.EnumTextType getNotificationTextType()
 	{
 		return getNotificationTextType(getContext());
 	}
@@ -122,20 +122,20 @@ public class Message
 	 * @param context
 	 * @return value of NotificationTextType
 	 */
-	public final slackmessage.proxies.Enum_TextType getNotificationTextType(com.mendix.systemwideinterfaces.core.IContext context)
+	public final slackmessage.proxies.EnumTextType getNotificationTextType(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.NotificationTextType.toString());
 		if (obj == null)
 			return null;
 
-		return slackmessage.proxies.Enum_TextType.valueOf((java.lang.String) obj);
+		return slackmessage.proxies.EnumTextType.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of NotificationTextType
 	 * @param notificationtexttype
 	 */
-	public final void setNotificationTextType(slackmessage.proxies.Enum_TextType notificationtexttype)
+	public final void setNotificationTextType(slackmessage.proxies.EnumTextType notificationtexttype)
 	{
 		setNotificationTextType(getContext(), notificationtexttype);
 	}
@@ -145,7 +145,7 @@ public class Message
 	 * @param context
 	 * @param notificationtexttype
 	 */
-	public final void setNotificationTextType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Enum_TextType notificationtexttype)
+	public final void setNotificationTextType(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumTextType notificationtexttype)
 	{
 		if (notificationtexttype != null)
 			getMendixObject().setValue(context, MemberNames.NotificationTextType.toString(), notificationtexttype.toString());

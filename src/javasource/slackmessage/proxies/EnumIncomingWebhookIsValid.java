@@ -4,7 +4,7 @@
 
 package slackmessage.proxies;
 
-public enum Enum_IncomingWebhook_IsValid
+public enum EnumIncomingWebhookIsValid
 {
 	isvalid(new java.lang.String[][] { new java.lang.String[] { "en_US", "Is valid" }, new java.lang.String[] { "nl_NL", "Is correct" } }),
 	isnotvalid(new java.lang.String[][] { new java.lang.String[] { "en_US", "Is not valid" }, new java.lang.String[] { "nl_NL", "Niet correct" } }),
@@ -12,7 +12,7 @@ public enum Enum_IncomingWebhook_IsValid
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 
-	private Enum_IncomingWebhook_IsValid(java.lang.String[][] captionStrings)
+	private EnumIncomingWebhookIsValid(java.lang.String[][] captionStrings)
 	{
 		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
 		for (java.lang.String[] captionString : captionStrings)

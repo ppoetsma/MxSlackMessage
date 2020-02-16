@@ -232,7 +232,7 @@ public class TestMessage
 	 * Set value of SendBy
 	 * @param sendby
 	 */
-	public final slackmessage.proxies.Enum_IncomingWebhook_Type getSendBy()
+	public final slackmessage.proxies.EnumIncomingWebhookType getSendBy()
 	{
 		return getSendBy(getContext());
 	}
@@ -241,20 +241,20 @@ public class TestMessage
 	 * @param context
 	 * @return value of SendBy
 	 */
-	public final slackmessage.proxies.Enum_IncomingWebhook_Type getSendBy(com.mendix.systemwideinterfaces.core.IContext context)
+	public final slackmessage.proxies.EnumIncomingWebhookType getSendBy(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.SendBy.toString());
 		if (obj == null)
 			return null;
 
-		return slackmessage.proxies.Enum_IncomingWebhook_Type.valueOf((java.lang.String) obj);
+		return slackmessage.proxies.EnumIncomingWebhookType.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of SendBy
 	 * @param sendby
 	 */
-	public final void setSendBy(slackmessage.proxies.Enum_IncomingWebhook_Type sendby)
+	public final void setSendBy(slackmessage.proxies.EnumIncomingWebhookType sendby)
 	{
 		setSendBy(getContext(), sendby);
 	}
@@ -264,7 +264,7 @@ public class TestMessage
 	 * @param context
 	 * @param sendby
 	 */
-	public final void setSendBy(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Enum_IncomingWebhook_Type sendby)
+	public final void setSendBy(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumIncomingWebhookType sendby)
 	{
 		if (sendby != null)
 			getMendixObject().setValue(context, MemberNames.SendBy.toString(), sendby.toString());

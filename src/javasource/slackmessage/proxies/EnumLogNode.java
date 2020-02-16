@@ -4,16 +4,13 @@
 
 package slackmessage.proxies;
 
-public enum Enum_SlashCommand_RequestValidation
+public enum EnumLogNode
 {
-	ok(new java.lang.String[][] { new java.lang.String[] { "en_US", "Ok" } }),
-	invalidtoken(new java.lang.String[][] { new java.lang.String[] { "en_US", "Invalid token" } }),
-	oksslcheck(new java.lang.String[][] { new java.lang.String[] { "en_US", "Ok SSL check" } }),
-	invalidtokensslcheck(new java.lang.String[][] { new java.lang.String[] { "en_US", "Invalid token SSL check" } });
+	SlackMessage(new java.lang.String[][] { new java.lang.String[] { "en_US", "SlackMessage" }, new java.lang.String[] { "nl_NL", "SlackMessage" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 
-	private Enum_SlashCommand_RequestValidation(java.lang.String[][] captionStrings)
+	private EnumLogNode(java.lang.String[][] captionStrings)
 	{
 		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
 		for (java.lang.String[] captionString : captionStrings)

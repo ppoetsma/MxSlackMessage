@@ -230,7 +230,7 @@ public class IncomingWebhook
 	 * Set value of IsValid
 	 * @param isvalid
 	 */
-	public final slackmessage.proxies.Enum_IncomingWebhook_IsValid getIsValid()
+	public final slackmessage.proxies.EnumIncomingWebhookIsValid getIsValid()
 	{
 		return getIsValid(getContext());
 	}
@@ -239,20 +239,20 @@ public class IncomingWebhook
 	 * @param context
 	 * @return value of IsValid
 	 */
-	public final slackmessage.proxies.Enum_IncomingWebhook_IsValid getIsValid(com.mendix.systemwideinterfaces.core.IContext context)
+	public final slackmessage.proxies.EnumIncomingWebhookIsValid getIsValid(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.IsValid.toString());
 		if (obj == null)
 			return null;
 
-		return slackmessage.proxies.Enum_IncomingWebhook_IsValid.valueOf((java.lang.String) obj);
+		return slackmessage.proxies.EnumIncomingWebhookIsValid.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of IsValid
 	 * @param isvalid
 	 */
-	public final void setIsValid(slackmessage.proxies.Enum_IncomingWebhook_IsValid isvalid)
+	public final void setIsValid(slackmessage.proxies.EnumIncomingWebhookIsValid isvalid)
 	{
 		setIsValid(getContext(), isvalid);
 	}
@@ -262,7 +262,7 @@ public class IncomingWebhook
 	 * @param context
 	 * @param isvalid
 	 */
-	public final void setIsValid(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Enum_IncomingWebhook_IsValid isvalid)
+	public final void setIsValid(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.EnumIncomingWebhookIsValid isvalid)
 	{
 		if (isvalid != null)
 			getMendixObject().setValue(context, MemberNames.IsValid.toString(), isvalid.toString());

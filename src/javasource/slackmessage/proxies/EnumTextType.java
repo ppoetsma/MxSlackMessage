@@ -4,15 +4,14 @@
 
 package slackmessage.proxies;
 
-public enum Enum_SlackApp_IsValid
+public enum EnumTextType
 {
-	isvalid(new java.lang.String[][] { new java.lang.String[] { "en_US", "Is valid" }, new java.lang.String[] { "nl_NL", "Is correct" } }),
-	isnotvalid(new java.lang.String[][] { new java.lang.String[] { "en_US", "Is not valid" }, new java.lang.String[] { "nl_NL", "Niet correct" } }),
-	autocreated(new java.lang.String[][] { new java.lang.String[] { "en_US", "Is not valid (auto created)" }, new java.lang.String[] { "nl_NL", "Niet correct (automatisch toegevoegd)" } });
+	mrkdwn(new java.lang.String[][] { new java.lang.String[] { "en_US", "Markdown" }, new java.lang.String[] { "nl_NL", "Markdown" } }),
+	plain_text(new java.lang.String[][] { new java.lang.String[] { "en_US", "Plain text" }, new java.lang.String[] { "nl_NL", "Platte tekst" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 
-	private Enum_SlackApp_IsValid(java.lang.String[][] captionStrings)
+	private EnumTextType(java.lang.String[][] captionStrings)
 	{
 		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
 		for (java.lang.String[] captionString : captionStrings)

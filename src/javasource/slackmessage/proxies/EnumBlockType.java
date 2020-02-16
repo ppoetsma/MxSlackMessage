@@ -4,15 +4,13 @@
 
 package slackmessage.proxies;
 
-public enum Enum_LogNode
+public enum EnumBlockType
 {
-	SlackMessage(new java.lang.String[][] { new java.lang.String[] { "en_US", "SlackMessage" }, new java.lang.String[] { "nl_NL", "SlackMessage" } }),
-	SlackMessageSlash(new java.lang.String[][] { new java.lang.String[] { "en_US", "SlackMessageSlash" } }),
-	SlackMessageSend(new java.lang.String[][] { new java.lang.String[] { "en_US", "SlackMessageSend" } });
+	section(new java.lang.String[][] { new java.lang.String[] { "en_US", "section" }, new java.lang.String[] { "nl_NL", "sectie" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 
-	private Enum_LogNode(java.lang.String[][] captionStrings)
+	private EnumBlockType(java.lang.String[][] captionStrings)
 	{
 		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
 		for (java.lang.String[] captionString : captionStrings)

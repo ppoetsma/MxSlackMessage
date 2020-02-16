@@ -4,14 +4,14 @@
 
 package slackmessage.proxies;
 
-public enum Enum_TextType
+public enum EnumIncomingWebhookType
 {
-	mrkdwn(new java.lang.String[][] { new java.lang.String[] { "en_US", "Markdown" }, new java.lang.String[] { "nl_NL", "Markdown" } }),
-	plain_text(new java.lang.String[][] { new java.lang.String[] { "en_US", "Plain text" }, new java.lang.String[] { "nl_NL", "Platte tekst" } });
+	Key(new java.lang.String[][] { new java.lang.String[] { "en_US", "Key" }, new java.lang.String[] { "nl_NL", "Sleutel" } }),
+	URL(new java.lang.String[][] { new java.lang.String[] { "en_US", "URL" }, new java.lang.String[] { "nl_NL", "URL" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 
-	private Enum_TextType(java.lang.String[][] captionStrings)
+	private EnumIncomingWebhookType(java.lang.String[][] captionStrings)
 	{
 		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
 		for (java.lang.String[] captionString : captionStrings)
