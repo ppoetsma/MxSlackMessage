@@ -34,11 +34,11 @@ public class SlashCommandRequest
 		ResponseURL("ResponseURL"),
 		TriggerID("TriggerID"),
 		SslCheck("SslCheck"),
-		SlackRequestTimestamp("SlackRequestTimestamp"),
-		SlackSignature("SlackSignature"),
+		SlackTimestamp("SlackTimestamp"),
 		SlackUserAgent("SlackUserAgent"),
-		ValidRequest("ValidRequest"),
+		IsValidRequest("IsValidRequest"),
 		UUID("UUID"),
+		SlackAppName("SlackAppName"),
 		SlashCommandRequest_HttpResponse("SlackMessage.SlashCommandRequest_HttpResponse");
 
 		private java.lang.String metaName;
@@ -631,75 +631,39 @@ public class SlashCommandRequest
 	}
 
 	/**
-	 * @return value of SlackRequestTimestamp
+	 * @return value of SlackTimestamp
 	 */
-	public final java.lang.Long getSlackRequestTimestamp()
+	public final java.util.Date getSlackTimestamp()
 	{
-		return getSlackRequestTimestamp(getContext());
+		return getSlackTimestamp(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of SlackRequestTimestamp
+	 * @return value of SlackTimestamp
 	 */
-	public final java.lang.Long getSlackRequestTimestamp(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.util.Date getSlackTimestamp(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.Long) getMendixObject().getValue(context, MemberNames.SlackRequestTimestamp.toString());
+		return (java.util.Date) getMendixObject().getValue(context, MemberNames.SlackTimestamp.toString());
 	}
 
 	/**
-	 * Set value of SlackRequestTimestamp
-	 * @param slackrequesttimestamp
+	 * Set value of SlackTimestamp
+	 * @param slacktimestamp
 	 */
-	public final void setSlackRequestTimestamp(java.lang.Long slackrequesttimestamp)
+	public final void setSlackTimestamp(java.util.Date slacktimestamp)
 	{
-		setSlackRequestTimestamp(getContext(), slackrequesttimestamp);
+		setSlackTimestamp(getContext(), slacktimestamp);
 	}
 
 	/**
-	 * Set value of SlackRequestTimestamp
+	 * Set value of SlackTimestamp
 	 * @param context
-	 * @param slackrequesttimestamp
+	 * @param slacktimestamp
 	 */
-	public final void setSlackRequestTimestamp(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Long slackrequesttimestamp)
+	public final void setSlackTimestamp(com.mendix.systemwideinterfaces.core.IContext context, java.util.Date slacktimestamp)
 	{
-		getMendixObject().setValue(context, MemberNames.SlackRequestTimestamp.toString(), slackrequesttimestamp);
-	}
-
-	/**
-	 * @return value of SlackSignature
-	 */
-	public final java.lang.String getSlackSignature()
-	{
-		return getSlackSignature(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of SlackSignature
-	 */
-	public final java.lang.String getSlackSignature(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.SlackSignature.toString());
-	}
-
-	/**
-	 * Set value of SlackSignature
-	 * @param slacksignature
-	 */
-	public final void setSlackSignature(java.lang.String slacksignature)
-	{
-		setSlackSignature(getContext(), slacksignature);
-	}
-
-	/**
-	 * Set value of SlackSignature
-	 * @param context
-	 * @param slacksignature
-	 */
-	public final void setSlackSignature(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String slacksignature)
-	{
-		getMendixObject().setValue(context, MemberNames.SlackSignature.toString(), slacksignature);
+		getMendixObject().setValue(context, MemberNames.SlackTimestamp.toString(), slacktimestamp);
 	}
 
 	/**
@@ -739,21 +703,21 @@ public class SlashCommandRequest
 	}
 
 	/**
-	 * Set value of ValidRequest
-	 * @param validrequest
+	 * Set value of IsValidRequest
+	 * @param isvalidrequest
 	 */
-	public final slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest getValidRequest()
+	public final slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest getIsValidRequest()
 	{
-		return getValidRequest(getContext());
+		return getIsValidRequest(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of ValidRequest
+	 * @return value of IsValidRequest
 	 */
-	public final slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest getValidRequest(com.mendix.systemwideinterfaces.core.IContext context)
+	public final slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest getIsValidRequest(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		Object obj = getMendixObject().getValue(context, MemberNames.ValidRequest.toString());
+		Object obj = getMendixObject().getValue(context, MemberNames.IsValidRequest.toString());
 		if (obj == null)
 			return null;
 
@@ -761,25 +725,25 @@ public class SlashCommandRequest
 	}
 
 	/**
-	 * Set value of ValidRequest
-	 * @param validrequest
+	 * Set value of IsValidRequest
+	 * @param isvalidrequest
 	 */
-	public final void setValidRequest(slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest validrequest)
+	public final void setIsValidRequest(slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest isvalidrequest)
 	{
-		setValidRequest(getContext(), validrequest);
+		setIsValidRequest(getContext(), isvalidrequest);
 	}
 
 	/**
-	 * Set value of ValidRequest
+	 * Set value of IsValidRequest
 	 * @param context
-	 * @param validrequest
+	 * @param isvalidrequest
 	 */
-	public final void setValidRequest(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest validrequest)
+	public final void setIsValidRequest(com.mendix.systemwideinterfaces.core.IContext context, slackmessage.proxies.Enum_SlashCommandRequest_ValidRequest isvalidrequest)
 	{
-		if (validrequest != null)
-			getMendixObject().setValue(context, MemberNames.ValidRequest.toString(), validrequest.toString());
+		if (isvalidrequest != null)
+			getMendixObject().setValue(context, MemberNames.IsValidRequest.toString(), isvalidrequest.toString());
 		else
-			getMendixObject().setValue(context, MemberNames.ValidRequest.toString(), null);
+			getMendixObject().setValue(context, MemberNames.IsValidRequest.toString(), null);
 	}
 
 	/**
@@ -816,6 +780,42 @@ public class SlashCommandRequest
 	public final void setUUID(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String uuid)
 	{
 		getMendixObject().setValue(context, MemberNames.UUID.toString(), uuid);
+	}
+
+	/**
+	 * @return value of SlackAppName
+	 */
+	public final java.lang.String getSlackAppName()
+	{
+		return getSlackAppName(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SlackAppName
+	 */
+	public final java.lang.String getSlackAppName(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.SlackAppName.toString());
+	}
+
+	/**
+	 * Set value of SlackAppName
+	 * @param slackappname
+	 */
+	public final void setSlackAppName(java.lang.String slackappname)
+	{
+		setSlackAppName(getContext(), slackappname);
+	}
+
+	/**
+	 * Set value of SlackAppName
+	 * @param context
+	 * @param slackappname
+	 */
+	public final void setSlackAppName(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String slackappname)
+	{
+		getMendixObject().setValue(context, MemberNames.SlackAppName.toString(), slackappname);
 	}
 
 	/**

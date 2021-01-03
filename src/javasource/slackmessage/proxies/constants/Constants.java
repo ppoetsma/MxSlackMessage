@@ -27,14 +27,6 @@ public class Constants
 	}
 
 	/**
-	* Please do not change this.
-	*/
-	public static java.lang.String getEncryptionPrefix()
-	{
-		return (java.lang.String)Core.getConfiguration().getConstantValue("SlackMessage.EncryptionPrefix");
-	}
-
-	/**
 	* When needed the module can be disabled on all runtime environments so it does not send messages. By default messages are sent in all environments other than development.
 	*/
 	public static boolean getSendEnabled()
@@ -56,13 +48,5 @@ public class Constants
 	public static java.lang.Long getSlackRequestTimeout()
 	{
 		return (java.lang.Long)Core.getConfiguration().getConstantValue("SlackMessage.SlackRequestTimeout");
-	}
-
-	/**
-	* Slash command are process by default, but when disabled the app will send a standard response.
-	*/
-	public static boolean getSlashCommandEnabled()
-	{
-		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("SlackMessage.SlashCommandEnabled");
 	}
 }

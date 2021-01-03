@@ -53,6 +53,44 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static java.lang.String cal_SlackApp_SlackConfigUrl(IContext context, slackmessage.proxies.SlackApp _slackApp)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SlackApp", _slackApp == null ? null : _slackApp.getMendixObject());
+			return (java.lang.String)Core.execute(context, "SlackMessage.Cal_SlackApp_SlackConfigUrl", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static java.lang.String commandHealth_DoTheMagic(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			return (java.lang.String)Core.execute(context, "SlackMessage.CommandHealth_DoTheMagic", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void commandHealth_Process(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
+			Core.execute(context, "SlackMessage.CommandHealth_Process", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static slackmessage.proxies.Enum_TextType convert_Mrkdwn_TextType(IContext context, boolean _mrkdwn)
 	{
 		try
@@ -95,6 +133,18 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static java.lang.String encryptionPrefix_SlackAES(IContext context)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			return (java.lang.String)Core.execute(context, "SlackMessage.EncryptionPrefix_SlackAES", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static java.lang.String encryptString(IContext context, java.lang.String _stringToEncrypt)
 	{
 		try
@@ -108,7 +158,7 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static system.proxies.HttpHeader httpHeader_Extract(IContext context, java.lang.String _key, java.util.List<system.proxies.HttpHeader> _httpHeaderList, slackmessage.proxies.SlashCommandRequest _slashCommandRequest, boolean _isRequired)
+	public static system.proxies.HttpHeader httpHeaderList_FindHeader(IContext context, java.lang.String _key, java.util.List<system.proxies.HttpHeader> _httpHeaderList, slackmessage.proxies.SlashCommandRequest _slashCommandRequest, boolean _isRequired)
 	{
 		try
 		{
@@ -124,7 +174,7 @@ public class Microflows
 			params.put("HttpHeaderList", listparam_httpHeaderList);
 			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
 			params.put("IsRequired", _isRequired);
-			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.HttpHeader_Extract", params);
+			IMendixObject result = (IMendixObject)Core.execute(context, "SlackMessage.HttpHeaderList_FindHeader", params);
 			return result == null ? null : system.proxies.HttpHeader.initialize(context, result);
 		}
 		catch (CoreException e)
@@ -385,6 +435,20 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static void pRS_SlashCommand_AnyCommand(IContext context, system.proxies.HttpRequest _httpRequest, system.proxies.HttpResponse _httpResponse)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("httpRequest", _httpRequest == null ? null : _httpRequest.getMendixObject());
+			params.put("httpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
+			Core.execute(context, "SlackMessage.PRS_SlashCommand_AnyCommand", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static void sE_SendToSlackHelper_Cleanup(IContext context)
 	{
 		try
@@ -486,6 +550,19 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static void slashCommand_AnyCommand(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
+			Core.execute(context, "SlackMessage.SlashCommand_AnyCommand", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static void slashCommand_Log(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest, communitycommons.proxies.LogLevel _logLevel, java.lang.String _message)
 	{
 		try
@@ -568,6 +645,34 @@ public class Microflows
 			params.put("ChannelVisibility", _channelVisibility == null ? null : _channelVisibility.name());
 			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
 			Core.execute(context, "SlackMessage.SlashCommandResponse_Create", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void slashCommandResponse_Create_VisibilityChannel(IContext context, java.lang.String _message, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Message", _message);
+			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
+			Core.execute(context, "SlackMessage.SlashCommandResponse_Create_VisibilityChannel", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void slashCommandResponse_Create_VisibilityUser(IContext context, java.lang.String _message, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Message", _message);
+			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
+			Core.execute(context, "SlackMessage.SlashCommandResponse_Create_VisibilityUser", params);
 		}
 		catch (CoreException e)
 		{

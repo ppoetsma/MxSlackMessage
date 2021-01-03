@@ -17,5 +17,6 @@ test/deployment
 test/GPUCache
 test/releases
 
-# Visual Studio
+# Visual Studio Code
 .vscode
+debug.log

@@ -15,11 +15,14 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.thirdparty.org.json.JSONObject;
 import com.mendix.webui.CustomJavaAction;
 
-public class JA_SlashCommand_RequestToJSON extends CustomJavaAction<java.lang.String>
+/**
+ * The request body is a kist of key value pairs. This Java action converts it into a JSON string. Comvert the JSON string using IM_SlashCommandRequest to a SlashCommandRequest object.
+ */
+public class JA_SlashCommandRequest_Parse extends CustomJavaAction<java.lang.String>
 {
 	private java.lang.String RequestBody;
 
-	public JA_SlashCommand_RequestToJSON(IContext context, java.lang.String RequestBody)
+	public JA_SlashCommandRequest_Parse(IContext context, java.lang.String RequestBody)
 	{
 		super(context);
 		this.RequestBody = RequestBody;
@@ -69,7 +72,7 @@ public class JA_SlashCommand_RequestToJSON extends CustomJavaAction<java.lang.St
 	@java.lang.Override
 	public java.lang.String toString()
 	{
-		return "JA_SlashCommand_RequestToJSON";
+		return "JA_SlashCommandRequest_Parse";
 	}
 
 	// BEGIN EXTRA CODE

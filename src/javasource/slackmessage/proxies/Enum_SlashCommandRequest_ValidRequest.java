@@ -10,9 +10,9 @@ public enum Enum_SlashCommandRequest_ValidRequest
 	oksslcheck(new java.lang.String[][] { new java.lang.String[] { "en_US", "Ok SSL check" }, new java.lang.String[] { "nl_NL", "Ok SSL check" } }),
 	invalid(new java.lang.String[][] { new java.lang.String[] { "en_US", "Invalid" } }),
 	invalidsslcheck(new java.lang.String[][] { new java.lang.String[] { "en_US", "Invalid SSL check" } }),
-	invalidtoken(new java.lang.String[][] { new java.lang.String[] { "en_US", "Invalid token" }, new java.lang.String[] { "nl_NL", "Onjuist token" } }),
 	missingheaders(new java.lang.String[][] { new java.lang.String[] { "en_US", "Missing headers" } }),
-	invalidtimestamp(new java.lang.String[][] { new java.lang.String[] { "en_US", "Invalid timestamp" } });
+	invalidtimestamp(new java.lang.String[][] { new java.lang.String[] { "en_US", "Invalid timestamp" } }),
+	unknownsignature(new java.lang.String[][] { new java.lang.String[] { "en_US", "Unknown signature" } });
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 

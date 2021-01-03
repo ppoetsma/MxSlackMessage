@@ -23,7 +23,8 @@ public class SlackApp
 		Name("Name"),
 		AppID("AppID"),
 		SigningSecret("SigningSecret"),
-		IsValid("IsValid");
+		IsValid("IsValid"),
+		SlackConfigUrl("SlackConfigUrl");
 
 		private java.lang.String metaName;
 
@@ -268,6 +269,42 @@ public class SlackApp
 			getMendixObject().setValue(context, MemberNames.IsValid.toString(), isvalid.toString());
 		else
 			getMendixObject().setValue(context, MemberNames.IsValid.toString(), null);
+	}
+
+	/**
+	 * @return value of SlackConfigUrl
+	 */
+	public final java.lang.String getSlackConfigUrl()
+	{
+		return getSlackConfigUrl(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SlackConfigUrl
+	 */
+	public final java.lang.String getSlackConfigUrl(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.SlackConfigUrl.toString());
+	}
+
+	/**
+	 * Set value of SlackConfigUrl
+	 * @param slackconfigurl
+	 */
+	public final void setSlackConfigUrl(java.lang.String slackconfigurl)
+	{
+		setSlackConfigUrl(getContext(), slackconfigurl);
+	}
+
+	/**
+	 * Set value of SlackConfigUrl
+	 * @param context
+	 * @param slackconfigurl
+	 */
+	public final void setSlackConfigUrl(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String slackconfigurl)
+	{
+		getMendixObject().setValue(context, MemberNames.SlackConfigUrl.toString(), slackconfigurl);
 	}
 
 	/**
