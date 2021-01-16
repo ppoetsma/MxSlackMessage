@@ -27,14 +27,6 @@ public class Constants
 	}
 
 	/**
-	* Please do not change this.
-	*/
-	public static java.lang.String getEncryptionPrefix()
-	{
-		return (java.lang.String)Core.getConfiguration().getConstantValue("SlackMessage.EncryptionPrefix");
-	}
-
-	/**
 	* When needed the module can be disabled on all runtime environments so it does not send messages. By default messages are sent in all environments other than development.
 	*/
 	public static boolean getSendEnabled()
