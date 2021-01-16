@@ -11,8 +11,8 @@ Its features are
 * Incoming Webhook URLs and other sensitive data are stored encrypted
 * create messages with markdown markup or just plain text
 * send messages to multiple channels in multiple workspaces
-* message can be sent in the background not delaying your primary process
-* no Java libraries that requires maintenance, just native Mendix
+* optionally send messages in the background not delaying your primary process
+* no Java libraries that require maintenance, just native Mendix
 * Dutch and English languages are supported in the UI
 
 ## Installation
@@ -21,7 +21,7 @@ Download the module from the AppStore and add it to your project.
 
 Add microflow `ASu_SlackMessage` to your app's AfterStartup microflow.
 
-The module depends on AppStore module [CommunityCommons](https://appstore.home.mendix.com/link/app/170/).
+The module depends on AppStore module [CommunityCommons](https://marketplace.mendix.com/link/component/170).
 
 ## Security
 

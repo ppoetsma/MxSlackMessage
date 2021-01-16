@@ -78,19 +78,6 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void commandHealth_Process(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
-			Core.execute(context, "SlackMessage.CommandHealth_Process", params);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
 	public static slackmessage.proxies.Enum_TextType convert_Mrkdwn_TextType(IContext context, boolean _mrkdwn)
 	{
 		try
@@ -550,19 +537,6 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
-	public static void slashCommand_AnyCommand(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
-	{
-		try
-		{
-			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
-			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
-			Core.execute(context, "SlackMessage.SlashCommand_AnyCommand", params);
-		}
-		catch (CoreException e)
-		{
-			throw new MendixRuntimeException(e);
-		}
-	}
 	public static void slashCommand_Log(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest, communitycommons.proxies.LogLevel _logLevel, java.lang.String _message)
 	{
 		try
@@ -617,6 +591,32 @@ public class Microflows
 			params.put("HttpRequest", _httpRequest == null ? null : _httpRequest.getMendixObject());
 			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
 			Core.execute(context, "SlackMessage.SlashCommandRequest_ParseRequestHeaders", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void slashCommandRequest_ProcessAnyCommand(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
+			Core.execute(context, "SlackMessage.SlashCommandRequest_ProcessAnyCommand", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
+	public static void slashCommandRequest_ProcessHealthCommand(IContext context, slackmessage.proxies.SlashCommandRequest _slashCommandRequest)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("SlashCommandRequest", _slashCommandRequest == null ? null : _slashCommandRequest.getMendixObject());
+			Core.execute(context, "SlackMessage.SlashCommandRequest_ProcessHealthCommand", params);
 		}
 		catch (CoreException e)
 		{

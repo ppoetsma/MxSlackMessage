@@ -34,44 +34,44 @@ Slack does not know what the command and parameters should do. It sends them as 
 
 The module comes with an example of a request handler (web service) for slash commands. The SlackMessage module cannot provide you with one out of the box because it does not know which commands you will create. The module offers some functions to help processing the request and creating a response. Slash commands can be very powerful and you have to create the microflow to handle that yourself.
 
-See folder **_USE ME slash commands / Example request handler** for an example request handler. It stars at microflow `PRS_SlashCommand_AnyCommand` where the first action calls microflow `SlashCommandRequest_Create` to validate the request and convert it into useable data.
+See folder **_USE ME slash commands / Example request handler** for an example request handler. It starts at microflow `PRS_SlashCommand_AnyCommand` where the first action calls microflow `SlashCommandRequest_Create` to validate the request and convert it into useable data.
 
 The request is validated on these aspects:
 
 * It is technically a slash command request from Slack.
 * The Slack App is found in your Mendix app's database, so the request is authorized.
 
-After validation an object of type SlashCommandRequest is available. These attributes can be used to decide what to do next:
+After validation an object of type `SlashCommandRequest` is available. The following attributes can be used to decide what to do next:
 
 | Attribute        | Documentation                                                                                           |
 | ---------------- | ------------------------------------------------------------------------------------------------------- |
 | `IsValidRequest` | Is this a valid request? See below for the `Enum_SlashCommandRequest_ValidRequest` enumeration values.  |
-| `SlackAppName`   | The name of the app as defined in your Mendix                                                           | `Command` | The command including the slash. |
+| `SlackAppName`   | The name of the app as defined in your Mendix app                                                       |
+| `Command`        | The command including the slash.                                                                        |
 | `Text`           | Optionally the command parameter(s).                                                                    |
 | `SlackTimestamp` | The timestamp of the request, according to Slack. This is used to validate if this is a recent request. |
 | `SlackUserAgent` | The user-agent request header.                                                                          |
 | `UUID`           | An unique UUID for this request; this SlackMessage module generates it and uses it in logging.          |
-| app.             |
 
-The entity has more attributes than listed above. See the entity and [the Slack documentationa](https://api.slack.com/interactivity/slash-commands) for the details. Depending on your specific setup attributes have a value or not, to be decided by Slack.
+The entity has more attributes than listed above. See the entity and [the Slack documentationa](https://api.slack.com/interactivity/slash-commands) for the details. Depending on your specific setup attributes have a value or not, that is controlled by Slack.
 
 The values of enumeration `Enum_SlashCommandRequest_ValidRequest` are:
 
-| Attribute          | Documentation                                                                                                                                                                                                                           |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ok`               | The request is valid.                                                                                                                                                                                                                    |
-| `oksslcheck`       | The request is valid but can be ignored, see below regarding **SSL Check**.                                                                                                                                                              |
-| `invalid`          | The request is not valid.                                                                                                                                                                                                                |
-| `invalidsslcheck`  | The request is not valid but can be ignored, see below regarding **SSL Check**; nevertheless something to look at because one might expect that this automatic request is a valid one or that the SlackMessage module can them properly. |
-| `unknownsignature` | The request was signed using a **Signing Secret** unknown to the Mendix app. Solve this by defining the Slack App in your Mendix app, see above for instructions.                                                                                                                                                             |
-| `missingheaders`   | The request headers were (partially) missing.                                                                                                                                                                                            |
-| `invalidtimestamp` | The request was too old.                                                                                                                                                                                                                 |
+| Attribute          | Documentation                                                                                                                                                                          |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ok`               | The request is valid.                                                                                                                                                                  |
+| `oksslcheck`       | The request is valid but can be ignored, see below regarding **SSL Check**.                                                                                                            |
+| `invalid`          | The request is not valid.                                                                                                                                                              |
+| `invalidsslcheck`  | The request is not valid but can be ignored, see below regarding **SSL Check**. Nevertheless something to look at because one might expect that this automatic request is a valid one. |
+| `unknownsignature` | The request was signed using a **Signing Secret** unknown to the Mendix app. Solve this by configuring the Slack App in your Mendix app, see above for instructions.                   |
+| `missingheaders`   | The request headers were (partially) missing.                                                                                                                                          |
+| `invalidtimestamp` | The request was too old.                                                                                                                                                               |
 
-Your microflow should only continue on value `ok`, or outcome TRUE per rule `Rule_SlashCommandRequest_IsValid`. In all other cases simply stop, the response to Slack is already created for you.
+Your microflow should only continue on value `ok`, or outcome TRUE per rule `Rule_SlashCommandRequest_IsValid`. In all other cases simply stop; the response to Slack is already created for you so don't worry about that.
 
-For public apps Slack sends so called **SSL Check** requests to validate the server's certificate. The Mendix app can ignore these requests, they are handled by the module. See also [the Slack documentation for details](https://api.slack.com/interactivity/slash-commands#app_command_handling).
+Slack sends so called **SSL Check** requests to public apps to validate the server's certificate. Your Mendix app can ignore these requests, they are handled by the module. See also [the Slack documentation for details](https://api.slack.com/interactivity/slash-commands#app_command_handling). When your Slack App is not public then these requests are not made.
 
-The next step is to process the command and create a response. Use microflow `SlashCommandResponse_Create` to create the response. This is what the parameters mean:
+The next and last step is to process the command and create a response. What "process the command" means is up to your use case(s). In the end use microflow `SlashCommandResponse_Create` to create the response to be send back. This is what the parameters mean:
 
 * `Message` - The message to show in the channel. Emoji's are allowed here, for example *Don't know :confused:*
 * `ChannelVisibility` - See enumeration `Enum_SlashCommand_ResponseVisibility` below.
@@ -86,14 +86,14 @@ Enumeration `Enum_SlashCommand_ResponseVisibility` tells Slack who to show the m
 
 ### Microflows
 
-| Microflow                                                    | Function                                                                                                                                                                            |
-| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SlackMessage.SlackApp_Ensure`                               | Add a Slack App definition and return it. When already in the database then retrieve that one.                                                                                      |
-| `SlackMessage.SlackApp_Upsert`                               | Add a Slack App definition and return it. When already in the database then update it and retrieve that one.                                                                        |
-| `SlackMessage.SlashCommandRequest_Create`                    | Given an HttpRequest and HttpResponse validate and interpret the request. When successful the outcome is a SlashCommandRequest with all data you need to execute the slash command. |
-| `SlackMessage.SlashCommandResponse_Create`                   | Create the response to the slash command. You have to provide the actual message to show and who to show it to.                                                                     |
-| `SlackMessage.SlashCommandResponse_Create_VisibilityChannel` | This is a convenience function, see also `SlackMessage.SlashCommandResponse_Create`.                                                                                                |
-| `SlackMessage.SlashCommandResponse_Create_VisibilityUser`    | This is a convenience function, see also `SlackMessage.SlashCommandResponse_Create`.                                                                                                |
+| Microflow                                                    | Function                                                                                                                                                                                     |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SlackMessage.SlackApp_Ensure`                               | Add a Slack App definition and return it. When already in the database then retrieve that one.                                                                                               |
+| `SlackMessage.SlackApp_Upsert`                               | Add a Slack App definition and return it. When already in the database then update it and retrieve that one.                                                                                 |
+| `SlackMessage.SlashCommandRequest_Create`                    | Given an HttpRequest and HttpResponse object validate and interpret the request. When successful the outcome is a `SlashCommandRequest` with all data you need to execute the slash command. |
+| `SlackMessage.SlashCommandResponse_Create`                   | Create the response to the slash command. You have to provide the actual message to show and audience.                                                                                       |
+| `SlackMessage.SlashCommandResponse_Create_VisibilityChannel` | This is a convenience function, see also `SlackMessage.SlashCommandResponse_Create`.                                                                                                         |
+| `SlackMessage.SlashCommandResponse_Create_VisibilityUser`    | This is a convenience function, see also `SlackMessage.SlashCommandResponse_Create`.                                                                                                         |
 
 ### Rules
 

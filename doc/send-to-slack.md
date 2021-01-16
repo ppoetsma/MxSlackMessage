@@ -20,10 +20,10 @@ One way is to store URLs in entity `IncomingWebhook`. This allows the developer 
 The entity has these attributes (all are required):
 
 * `Label` - a descriptive human readable label
-* `Key` - a sort unique key to be used in your microflows to find the right Webhook; only lowercase and uppercase characters, digits and underscores are allowed here
+* `Key` - a unique key to be used in your microflows to find the right Webhook; only lowercase and uppercase characters, digits and underscores are allowed here
 * `URL` - the Incoming Webhook URL
 
-It is highly recommended to store the values for `Key` in an enumeration. This makes using them more consistent and prevents error by typos.
+It is highly recommended to store the values for `Key` in an enumeration. This makes using them in your app more consistent and prevents error by typos.
 
 Add snippet `SN_Webhook` to a page to manage your Incoming Webhooks manually. Additionally you can use microflows `IncomingWebhook_Ensure` or `IncomingWebhook_Upsert` in for example the AfterStartup flow to add them to the database on app start automatically.
 
@@ -33,9 +33,9 @@ Another way is to store URLs using your own method and not use entity `IncomingW
 
 ## Create and send a single line message
 
-The microflows `Message_CreateAndSendToWebhookKey` and `Message_CreateAndSendToWebhookURL` can be used to send a single line message to Slack and can be used as an example how to use all steps separately with multi line messages.
+The microflows `Message_CreateAndSendToWebhookKey` and `Message_CreateAndSendToWebhookURL` can be used to send a single line message to Slack. And they are an example how to use all steps separately with multi line messages.
 
-The first microflow expects an `IncomingWebhook` object with the specified `key` to be in the database. The second microflow accepts an Incoming Webhook URL as input.
+The first microflow expects an `IncomingWebhook` object with the specified `Key` to be in the database. The second microflow accepts an Incoming Webhook URL as input.
 
 The microflows have these parameters:
 
@@ -56,7 +56,7 @@ You start a multi-line message by creating the basis of a message using microflo
 
 Next you add one or more lines to your message using microflow `Message_AddLine`. Also here [Markdown](https://api.slack.com/reference/surfaces/formatting) is supported.
 
-An example of the text in such a line is below. The resulting message starts with `@here` which notifies all active users. Next it shows a large blue dot (emoji) and a text where the word `UP` is in **bold**.
+An example of the text in such a line is below. The resulting message starts with `@here` which notifies all active users. Next it shows a specific emoji and a text where the word `UP` is in **bold**.
 
 ```auto
 <!here> :green_heart: all systems are *UP*
@@ -84,10 +84,6 @@ The module adds these constants to your app and adjust them when needed.
 You MUST change this constant's value because the default value is unusable:
 
 * `SlackMessage.EncryptionKey` - The encryption key used to encrypt sensitive data like the Incoming Webhook URL which does not need authentication. Its length should exactly be 16 characters (128 bit). By default this key is not set so you have to create your own secure key. It is advised to use a combination of uppercase and lowercase characters, digits and special characters.
-
-You SHOULD NEVER change this constant's value:
-
-* `SlackMessage.EncryptionPrefix` - A string that indicates if a string is encrypted or not. Changing it might prevent you to upgrade in the future.
 
 ## Scheduled events
 
