@@ -19,3 +19,4 @@ test/releases
 
 # Visual Studio
 .vscode
+debug.log
