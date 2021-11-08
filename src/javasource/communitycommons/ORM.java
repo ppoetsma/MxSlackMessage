@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import system.proxies.FileDocument;
 
 public class ORM {
 
@@ -84,9 +85,10 @@ public class ORM {
 		Map<String, ? extends IMendixObjectMember<?>> members = src.getMembers(ctx);
 		String type = src.getType() + "/";
 
-		for (String key : members.keySet()) {
+		for (var entry : members.entrySet()) {
+			String key = entry.getKey();
 			if (!toskip.contains(key) && !toskip.contains(type + key)) {
-				IMendixObjectMember<?> m = members.get(key);
+				IMendixObjectMember<?> m = entry.getValue();
 				if (m.isVirtual() || m instanceof MendixAutoNumber) {
 					continue;
 				}
@@ -108,7 +110,9 @@ public class ORM {
 					tar.setValue(ctx, key, res);
 				} else if (m instanceof MendixAutoNumber) //skip autonumbers! Ticket 14893
 				{
-					continue;
+					// do nothing
+				} else if ("__UUID__".equals(key) && (isFileDocument(src) || isFileDocument(tar))) {
+					// do nothing
 				} else {
 					tar.setValue(ctx, key, m.getValue(ctx));
 				}
@@ -255,20 +259,27 @@ public class ORM {
 		}
 	}
 
+	private static boolean isFileDocument(IMendixObject object) {
+		return Core.isSubClassOf(Core.getMetaObject(FileDocument.entityName), object.getMetaObject());
+	}
+
 	public static Boolean cloneObject(IContext c, IMendixObject source,
 		IMendixObject target, Boolean withAssociations) {
 		Map<String, ? extends IMendixObjectMember<?>> members = source.getMembers(c);
 
-		for (String key : members.keySet()) {
-			IMendixObjectMember<?> m = members.get(key);
+		for (var entry : members.entrySet()) {
+			IMendixObjectMember<?> m = entry.getValue();
 			if (m.isVirtual()) {
 				continue;
 			}
 			if (m instanceof MendixAutoNumber) {
 				continue;
 			}
+			if ("__UUID__".equals(m.getName()) && (isFileDocument(source) || isFileDocument(target))) {
+				continue;
+            }
 			if (withAssociations || ((!(m instanceof MendixObjectReference) && !(m instanceof MendixObjectReferenceSet) && !(m instanceof MendixAutoNumber)))) {
-				target.setValue(c, key, m.getValue(c));
+				target.setValue(c, entry.getKey(), m.getValue(c));
 			}
 		}
 		return true;
@@ -346,6 +357,9 @@ public class ORM {
 				continue;
 			}
 			if (e.isVirtual() || e.getType() == PrimitiveType.AutoNumber) {
+				continue;
+			}
+			if ("__UUID__".equals(e.getName()) && (isFileDocument(source) || isFileDocument(target))) {
 				continue;
 			}
 
