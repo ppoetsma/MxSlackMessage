@@ -32,11 +32,11 @@ The module offers these two roles:
 
 ## Send messages to Slack
 
-Instructions are [available here](doc/send-to-slack.md).
+Instructions are [available here](https://github.com/ppoetsma/SlackMessage/blob/master/doc/send-to-slack.md).
 
 ## Receive commands from Slack
 
-Instructions are [available here](doc/receive-from-slack.md).
+Instructions are [available here](https://github.com/ppoetsma/SlackMessage/blob/master/doc/receive-from-slack.md).
 
 ## Test creating and sending messages
 
